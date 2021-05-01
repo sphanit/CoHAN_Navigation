@@ -126,7 +126,7 @@ namespace joint_trajectory_generator {
             new_goal.trajectory.points[0].positions[i] = current_state_[new_goal.trajectory.joint_names[i]];
 
             // Get the joint and calculate the offset from the current state
-            std::shared_ptr<const urdf::Joint> joint = robot_model_.getJoint(new_goal.trajectory.joint_names[i]);
+            boost::shared_ptr<const urdf::Joint> joint = robot_model_.getJoint(new_goal.trajectory.joint_names[i]);
             double offset = 0;
 
             double goal_position = goal.trajectory.points[0].positions[i],
