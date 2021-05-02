@@ -26,7 +26,7 @@ It uses slightly modified versions of [stage_ros](https://github.com/ros-simulat
 	roslaunch cohan_navigation stage_pr2_full.launch fast_mode:=true map_name:=laas_adream localize:=fake
 	```
 # Running the examples (MORSE)
-1. PR2 with two humans and stage GUI
+1. PR2 with two humans
 	```
 	roslaunch cohan_navigation morse_pr2_full.launch map_name:=laas_adream localize:=amcl
 	```
