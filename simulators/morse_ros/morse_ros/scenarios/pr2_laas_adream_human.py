@@ -43,7 +43,7 @@ def add_human(h_id):
 # pr2 robot with laser (scan) and odometry (odom) sensors, and actuators
 # for armature (joint_trajectory_contorller) and wheels (cmd_vel) to the scene
 # pr2 = NavPR2(with_keyboard=True, show_laser=True, laser_z=0.05)
-pr2 = NavPR2(with_keyboard=True, show_laser=True)
+pr2 = NavPR2(with_keyboard=True, show_laser=False, laser_z=0.05)
 pr2.add_interface("ros")
 
 # For fake localization
