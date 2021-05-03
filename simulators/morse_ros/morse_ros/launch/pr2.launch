@@ -4,6 +4,4 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
     <arg name="publish_tf" value="false" />
 
-    <!-- tuck the arms by default -->
-    <include file="$(find morse_ros)/launch/pr2_tuck_arms.launch" />
 </launch>
