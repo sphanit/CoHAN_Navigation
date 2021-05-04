@@ -1,6 +1,6 @@
 # CoHAN Navigation
 
-This package provides the configuration files and examples for the [CoHAN Planner](https://github.com/sphanit/CoHAN_Planner).
+This package provides the configuration files and examples for the [CoHAN Planner](https://github.com/sphanit/CoHAN_Planner/tree/kinetic-devel).
 
 It uses slightly modified versions of [stage_ros](https://github.com/ros-simulation/stage_ros) and [MORSE](https://github.com/morse-simulator/morse) simulators for simulating the robot and the humans. The modified version of ```stage_ros``` is already included and the installation guide for ```MORSE``` can be found [here](https://github.com/sphanit/morse/blob/cohan_melodic/installation.md).
 
