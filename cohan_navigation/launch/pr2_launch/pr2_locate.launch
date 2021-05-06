@@ -1,20 +1,13 @@
 <launch>
   <!-- start map_server with laas_adream map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream_simplified.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/adream_RDC_complet.yaml"/>
 
-  <!-- start acml for localization -->
-  <!-- <node name="amcl" pkg="amcl" type="amcl">
-    <param name="odom_frame_id" value="odom_combined"/>
-    <remap from="scan" to="base_scan"/>
-    <param name="initial_pose_x" value="2.0"/>
-    <param name="initial_pose_y" value="2.0"/>
-    <param name="initial_pose_a" value="0.0"/>
-  </node> -->
-
+  <!-- Launch amcl localization on the correct machine -->
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
   <include file="$(find cohan_navigation)/config/pr2_move_base_config/amcl_node.xml"/>
-  <param name="/amcl/initial_pose_x" value="2.0" />
-  <param name="/amcl/initial_pose_y" value="2.0" />
-  <param name="/amcl/initial_pose_a" value="0.0" />
+
+  <!-- Backup (if the above amcl doesn't work) -->
+  <!-- <include file="$(find pr2_navigation_global)/amcl_node.xml" /> -->
 
 <!-- ********************************************************************************************************************** -->
   <!-- Don't Use it with real robot (Can be used for gazebo)-->
