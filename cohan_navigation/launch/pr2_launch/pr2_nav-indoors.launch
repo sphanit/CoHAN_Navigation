@@ -1,6 +1,6 @@
 <launch>
   <!-- human pose prediction, for the local-planning -->
-	  <node pkg="human_path_prediction" type="human_path_prediction" name="human_path_prediction" output="screen" >
+ <node pkg="human_path_prediction" type="human_path_prediction" name="human_path_prediction" output="screen" >
     <remap from="~" to="/human_path_predict"/>
     <remap from="/human_path_predict/tracked_humans" to="/tracked_humans"/>
     <remap from="/human_path_predict/external_human_paths" to="/humans_sim_node/MultiGoalPlanner/plans"/>
