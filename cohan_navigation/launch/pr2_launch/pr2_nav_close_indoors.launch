@@ -1,6 +1,11 @@
 <launch>
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
+
+  <!-- Launch the joystick teleop for navigation and mux -->
+  <include file="$(find pr2_navigation_teleop)/teleop.xml" />
+
   <!-- human pose prediction, for the local-planning -->
-	  <node pkg="human_path_prediction" type="human_path_prediction" name="human_path_prediction" output="screen" >
+  <node pkg="human_path_prediction" type="human_path_prediction" name="human_path_prediction" output="screen" >
     <remap from="~" to="/human_path_predict"/>
     <remap from="/human_path_predict/tracked_humans" to="/tracked_humans"/>
     <remap from="/human_path_predict/external_human_paths" to="/humans_sim_node/MultiGoalPlanner/plans"/>
@@ -12,16 +17,18 @@
   <node pkg="human_path_prediction" type="predict_goal.py" name="human_goal_predict" output="screen"/>
 
 
-  <node pkg="move_base" type="move_base" name="move_base" output="screen">
-		<remap from="scan" to="base_scan"/>
-    <remap from="cmd_vel" to="base_controller/command"/>
+  <!-- Launch the HATEB navigation node -->
+  <node pkg="move_base" type="move_base" name="move_base" output="screen" machine="c2">
+    <remap from="scan" to="base_scan"/>
+    <remap from="odom" to="base_odometry/odom" />
+    <remap from="cmd_vel" to="navigation/cmd_vel" />
 
     <param name="base_global_planner" value="global_planner/GlobalPlanner" />
     <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
 
     <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/move_base_params.yaml" command="load" />
-    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/global_costmap_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/local_costmap_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/global_costmap_params_close_indoors.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/local_costmap_params_close_indoors.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/hateb_local_planner_params_close_indoors.yaml" command="load" ns="HATebLocalPlannerROS" />
 
     <!-- Remapping topics properly (if necessary)-->
