@@ -1,4 +1,9 @@
 <launch>
+  <include file="$(find pr2_machine)/$(env ROBOT).machine" />
+
+  <!-- Launch the joystick teleop for navigation and mux -->
+  <include file="$(find pr2_navigation_teleop)/teleop.xml" />
+
   <!-- human pose prediction, for the local-planning -->
   <node pkg="human_path_prediction" type="human_path_prediction" name="human_path_prediction" output="screen" >
     <remap from="~" to="/human_path_predict"/>
@@ -12,15 +17,11 @@
   <node pkg="human_path_prediction" type="predict_goal.py" name="human_goal_predict" output="screen"/>
 
 
-  <!-- Launch the joystick teleop for navigation and mux -->
-  <include file="$(find pr2_navigation_teleop)/teleop.xml" />
-
   <!-- Launch the HATEB navigation node -->
   <node pkg="move_base" type="move_base" name="move_base" output="screen" machine="c2">
     <remap from="scan" to="base_scan"/>
     <remap from="odom" to="base_odometry/odom" />
     <remap from="cmd_vel" to="navigation/cmd_vel" />
-    <!-- <remap from="cmd_vel" to="base_controller/command"/> -->
 
     <param name="base_global_planner" value="global_planner/GlobalPlanner" />
     <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
