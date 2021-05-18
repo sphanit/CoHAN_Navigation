@@ -4,13 +4,13 @@
   <arg name="localize" default="fake"/>
 
   <!-- start map_server with laas_adream map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream_stage.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/maze.yaml" if="$(eval 'maze'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/open_space.yaml" if="$(eval 'open_space'==arg('map_name'))"/>
 
   <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="true" output="screen" if="$(eval 'fake'==arg('localize'))">
     <param name="odom_frame_id" value="odom" />
-    <param name="global_frame_id" value="map" />
+    <param name="global_frame_id" value="/map" />
     <param name="base_frame_id" value="base_link" />
     <param name="delta_x" value="0.0" />
     <param name="delta_y" value="0.0" />

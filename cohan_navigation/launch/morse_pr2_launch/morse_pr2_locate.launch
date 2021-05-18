@@ -1,4 +1,5 @@
 <launch>
+  <!-- start map_server with laas_adream map -->
   <arg name="map_name" default="laas_adream"/>
   <arg name="localize" default="fake"/>
 
