@@ -14,7 +14,6 @@
   </node>
   <node pkg="human_path_prediction" type="predict_goal.py" name="human_goal_predict" output="screen"/>
 
-
   <!-- move_base node with hateb -->
   <node pkg="move_base" type="move_base" name="move_base" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
     <param name="base_global_planner" value="global_planner/GlobalPlanner" />
@@ -35,4 +34,10 @@
     <!-- For Backoff recovery -->
     <!-- <remap from="/move_base_node/HATebLocalPlannerROS/current_goal" to="/move_base_node/current_goal"/> -->
   </node>
+
+  <!-- Filter the humans from laser scan -->
+  <include file="$(find human_layers)/launch/human_filter.launch">
+    <arg name="simulator" value="morse"/>
+  </include>
+
 </launch>
