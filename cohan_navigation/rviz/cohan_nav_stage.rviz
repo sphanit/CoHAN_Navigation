@@ -555,7 +555,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_path_array/HumanPathArray
-      Color: 25; 255; 0
+      Color: 32; 74; 135
       Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
@@ -578,7 +578,7 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz_path_array/HumanPathArray
-      Color: 25; 255; 0
+      Color: 237; 212; 0
       Enabled: true
       Head Diameter: 0.30000001192092896
       Head Length: 0.20000000298023224
@@ -619,7 +619,7 @@ Visualization Manager:
       Marker Topic: /move_base/HATebLocalPlannerROS/mode_text
       Name: ModeText
       Namespaces:
-        {}
+        mode: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -627,7 +627,7 @@ Visualization Manager:
       Marker Topic: /move_base/HATebLocalPlannerROS/local_plan_fp_poses
       Name: RobotTimeVelocityMarkers
       Namespaces:
-        {}
+        robot_fp_poses: true
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -649,14 +649,14 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 10
-        Min Value: -10
+        Max Value: 0.10000000149011612
+        Min Value: 0.10000000149011612
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz/LaserScan
       Color: 255; 255; 255
-      Color Transformer: Intensity
+      Color Transformer: FlatColor
       Decay Time: 0
       Enabled: false
       Invert Rainbow: false

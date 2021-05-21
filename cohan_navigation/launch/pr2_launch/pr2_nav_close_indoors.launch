@@ -26,7 +26,7 @@
     <param name="base_global_planner" value="global_planner/GlobalPlanner" />
     <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
 
-    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/move_base_params.yaml" command="load" />
+    <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/move_base_params_close_indoors.yaml" command="load" />
     <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/global_costmap_params_close_indoors.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/local_costmap_params_close_indoors.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find cohan_navigation)/config/pr2_move_base_config/hateb_local_planner_params_close_indoors.yaml" command="load" ns="HATebLocalPlannerROS" />

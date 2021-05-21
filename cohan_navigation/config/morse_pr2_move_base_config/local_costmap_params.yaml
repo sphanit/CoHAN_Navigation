@@ -10,7 +10,6 @@ robot_base_frame: base_link
 footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.325, -0.325]]
 footprint_padding: 0.05
 rolling_window: true
-static_map: false
 plugins:
   - {name: static, type: "costmap_2d::StaticLayer"}
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
