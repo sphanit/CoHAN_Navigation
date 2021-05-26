@@ -77,6 +77,7 @@ min_human_robot_dist: 0.6
 xy_goal_tolerance: 0.2
 yaw_goal_tolerance: 0.1
 free_goal_vel: True
+use_docking: True
 
 # Obstacles
 min_obstacle_dist: 0.1
