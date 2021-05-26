@@ -39,6 +39,17 @@
     <arg name="node_start_delay" value="$(arg node_start_delay)"/>
   </include>
 
+  <!-- Docking -->
+  <node pkg="base_nav" name="docking_node" type="docking_node" output="screen">
+      <remap from="navigation/cmd_vel" to="/cmd_vel" />
+      <param name="goal_tolerance" value="0.05" />
+      <param name="max_speed" value="0.2" />
+      <param name="P" value="2.0" />
+      <param name="I" value="0.3" />
+      <param name="max_integral" value="10" />
+      <param name="control_period" value="0.1" />
+  </node>
+
   <!-- Stage humans to /tracked_humans -->
   <node name="humans" pkg="stage_ros" type="humans_bridge.py" args="$(arg num_humans)" output="screen"/>
 
