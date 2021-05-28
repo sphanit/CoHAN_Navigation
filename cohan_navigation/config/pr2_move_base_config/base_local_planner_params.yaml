@@ -1,6 +1,6 @@
-transform_tolerance: 0.2
-sim_time: 1.7
-sim_granularity: 0.025
+transform_tolerance: 0.4
+#sim_time: 1.7
+#sim_granularity: 0.025
 dwa: true
 vx_samples: 3
 vtheta_samples: 20

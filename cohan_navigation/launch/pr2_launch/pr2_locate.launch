@@ -9,7 +9,7 @@
   <!-- Backup (if the above amcl doesn't work) -->
   <!-- <include file="$(find pr2_navigation_global)/amcl_node.xml" /> -->
 
-<!-- ********************************************************************************************************************** -->
+ <!-- ********************************************************************************************************************** -->
   <!-- Don't Use it with real robot (Can be used for gazebo)-->
   <!-- <node pkg="fake_localization" type="fake_localization" name="fake_localization" respawn="false" output="screen">
     <param name="odom_frame_id" value="odom_combined" />
