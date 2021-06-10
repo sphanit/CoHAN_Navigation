@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /HumanDirection1
       Splitter Ratio: 0.5
     Tree Height: 485
   - Class: rviz/Selection
@@ -26,7 +27,7 @@ Panels:
     Experimental: false
     Name: Time
     SyncMode: 0
-    SyncSource: LaserScan
+    SyncSource: ""
 Preferences:
   PromptSaveOnExit: true
 Toolbars:
@@ -600,7 +601,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /move_base/HATebLocalPlannerROS/human_marker
+      Marker Topic: /move_base/HATebLocalPlannerROS/agent_marker
       Name: HumanMarker
       Namespaces:
         body: true
@@ -608,7 +609,7 @@ Visualization Manager:
       Value: true
     - Class: rviz/MarkerArray
       Enabled: true
-      Marker Topic: /move_base/HATebLocalPlannerROS/human_arrow
+      Marker Topic: /move_base/HATebLocalPlannerROS/agent_arrow
       Name: HumanDirection
       Namespaces:
         direction: true
@@ -619,7 +620,7 @@ Visualization Manager:
       Marker Topic: /move_base/HATebLocalPlannerROS/mode_text
       Name: ModeText
       Namespaces:
-        mode: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -627,7 +628,7 @@ Visualization Manager:
       Marker Topic: /move_base/HATebLocalPlannerROS/local_plan_fp_poses
       Name: RobotTimeVelocityMarkers
       Namespaces:
-        robot_fp_poses: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/MarkerArray
@@ -735,5 +736,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 893
-  X: 1025
-  Y: 27
+  X: 2940
+  Y: 0

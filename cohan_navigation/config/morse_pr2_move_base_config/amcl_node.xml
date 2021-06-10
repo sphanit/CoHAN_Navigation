@@ -1,8 +1,8 @@
 <launch>
   <node pkg="amcl" type="amcl" name="amcl" respawn="true" output="screen">
     <!-- Robot Odom Model and Frames -->
-    <param name="odom_frame_id" value="/odom"/>
-    <param name="base_frame_id" value="/base_link"/>
+    <param name="odom_frame_id" value="odom"/>
+    <param name="base_frame_id" value="base_link"/>
     <param name="odom_model_type" value="omni"/>
 
     <!-- Other Params -->

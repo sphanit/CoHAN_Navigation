@@ -3,7 +3,7 @@ update_frequency: 10.0
 global_frame: map
 robot_base_frame: base_link
 rolling_window: false
-footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
+robot_radius: 0.3
 plugins:
   - {name: static_map, type: "costmap_2d::StaticLayer"}
   - {name: obstacles, type: "costmap_2d::ObstacleLayer"}

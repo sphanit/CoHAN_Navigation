@@ -1,7 +1,0 @@
-<launch>
-  <!-- static map and localization -->
-  <include file="$(find cohan_navigation)/pr2_launch/pr2_locate.launch"/>
-
-  <!-- navigation -->
-  <include file="$(find cohan_navigation)/pr2_launch/pr2_nav_close_indoors.launch"/>
-</launch>
