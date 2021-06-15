@@ -111,10 +111,6 @@ class OptiTrackHuman():
                     segment.pose.pose = self.pos
                     segment.twist.twist = self.vel
 
-        for human in self.uwds_humans.humans:
-            human.pose = self.pos
-            human.velocity = self.vel
-
         self.publishHumans()
 
     def publishHumans(self):
@@ -123,7 +119,6 @@ class OptiTrackHuman():
             self.humans.header.stamp = rospy.Time.now()
             self.humans.header.frame_id = 'map'
             self.pub.publish(self.humans)
-            self.uwds_pub.publish(self.uwds_humans)
             #print('updated')
             #print(self.humans)
 
