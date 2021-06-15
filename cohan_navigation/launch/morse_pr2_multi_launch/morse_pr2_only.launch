@@ -4,9 +4,6 @@
   <arg name="num_agents" default="3"/>
   <arg name="node_start_delay" default="2.0"/>
 
-  <!-- tuck the arms by default -->
-  <include file="$(find morse_ros)/launch/pr2_tuck_arms.launch" />
-
   <!-- start map_server with laas_adream map -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/maze.yaml" if="$(eval 'maze'==arg('map_name'))"/>
