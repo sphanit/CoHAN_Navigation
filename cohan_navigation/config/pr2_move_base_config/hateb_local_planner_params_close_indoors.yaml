@@ -18,11 +18,11 @@ shrink_horizon_backup: True
 # Robot
 holonomic_robot: true
 is_real: true
-max_vel_y: 0.1
+max_vel_y: 0.3
 acc_lim_y: 0.3
-max_vel_x: 0.1
+max_vel_x: 0.3
 min_vel_x: 0.02
-max_vel_x_backwards: 0.1
+max_vel_x_backwards: 0.3
 max_vel_theta: 1.2
 min_vel_theta: 0.1
 acc_lim_x: 0.3
@@ -76,6 +76,8 @@ min_human_robot_dist: 0.6
 # GoalTolerance
 xy_goal_tolerance: 0.2
 yaw_goal_tolerance: 0.1
+xy_goal_tolerance_dock: 0.2
+yaw_goal_tolerance_dock: 0.2
 free_goal_vel: True
 use_docking: True
 
