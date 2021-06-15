@@ -30,9 +30,9 @@ def add_human(h_id):
     name = "human" + str(h_id)
 
     ## human_marker sensor for the human
-    human_marker = AgentMarker()
-    human.append(human_marker)
-    human_marker.add_interface("ros", topic="/"+name)
+    # human_marker = AgentMarker()
+    # human.append(human_marker)
+    # human_marker.add_interface("ros", topic="/"+name)
 
     human_motion = MotionXYW()
     human_motion.properties(ControlType='Position')
