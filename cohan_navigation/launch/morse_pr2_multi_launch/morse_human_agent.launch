@@ -21,6 +21,6 @@
   </include>
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_morse.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_morse_human.rviz" />
 
 </launch>

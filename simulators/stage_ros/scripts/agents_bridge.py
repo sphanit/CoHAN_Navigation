@@ -6,7 +6,7 @@
 import sys
 import rospy
 import time
-from cohan_msgs.msg import TrackedAgents, TrackedAgent, AgentMarkerStamped, TrackedSegment, TrackedSegmentType, AgentType
+from cohan_msgs.msg import TrackedAgents, TrackedAgent, TrackedSegment, TrackedSegmentType, AgentType
 from nav_msgs.msg import Odometry
 import message_filters
 

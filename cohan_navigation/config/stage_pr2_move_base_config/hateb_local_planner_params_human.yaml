@@ -17,7 +17,7 @@ shrink_horizon_backup: True
 
 # Robot
 holonomic_robot: true
-type: 0 #(0: Robot, 1: Human)
+type: 1 #(0: Robot, 1: Human)
 max_vel_y: 0.7
 acc_lim_y: 0.3
 max_vel_x: 0.7
