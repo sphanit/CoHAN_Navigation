@@ -7,7 +7,7 @@ robot_radius: 0.3
 plugins:
   - {name: static_map, type: "costmap_2d::StaticLayer"}
   # - {name: obstacles, type: "costmap_2d::ObstacleLayer"}
-  # - {name: inflater, type: "costmap_2d::InflationLayer"}
+  - {name: inflater, type: "costmap_2d::InflationLayer"}
   - {name: human_layer_static, type: "cohan_layers::StaticAgentLayer"}
   - {name: human_layer_visible, type: "cohan_layers::AgentVisibilityLayer"}
 
