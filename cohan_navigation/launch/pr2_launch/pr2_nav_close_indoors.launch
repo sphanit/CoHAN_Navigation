@@ -18,7 +18,7 @@
 
 
   <!-- Launch the HATEB navigation node -->
-  <node pkg="move_base" type="move_base" name="move_base" output="screen" machine="c2">
+  <node pkg="move_base" type="move_base" name="move_base" output="screen">
     <remap from="scan" to="base_scan"/>
     <remap from="odom" to="base_odometry/odom" />
     <remap from="cmd_vel" to="navigation/cmd_vel" />
@@ -41,4 +41,17 @@
     <!-- For Backoff recovery -->
     <!-- <remap from="/move_base_node/HATebLocalPlannerROS/current_goal" to="/move_base_node/current_goal"/> -->
   </node>
+
+  <!-- Docking -->
+  <node pkg="base_nav" name="docking_node" type="docking_node" output="screen">
+      <param name="goal_tolerance" value="0.05" />
+      <param name="max_speed" value="0.2" />
+      <param name="P_dist" value="3.0" />
+      <param name="I_dist" value="1.5" />
+      <param name="P_ang" value="3.5" />
+      <param name="I_ang" value="1.5" />
+      <param name="max_integral" value="10" />
+      <param name="control_period" value="0.1" />
+  </node>
+
 </launch>

@@ -3,6 +3,7 @@ update_frequency: 15.0
 global_frame: map
 robot_base_frame: base_link
 rolling_window: false
+transform_tolerance: 0.5
 footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
 plugins:
   - {name: static_map, type: "costmap_2d::StaticLayer"}
