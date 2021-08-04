@@ -26,22 +26,25 @@ def add_human(h_id):
 
     name = "human" + str(h_id)
 
-    ## human_marker sensor for the human
-    # human_marker = AgentMarker()
-    # human.append(human_marker)
-    # human_marker.add_interface("ros", topic="/"+name)
+    ## human_marker sensor for the human (necessary for absolute velocity)
+    human_marker = AgentMarker()
+    human.append(human_marker)
+    human_marker.add_interface("ros", topic="/"+name)
 
     human_motion = MotionXYW()
     human_motion.properties(ControlType='Position')
 
     human_odom = Odometry()
+    human_odom.level("integrated")
     human_odom.add_interface("ros",topic="/"+name+"/odom",
                              frame_id = name+"/odom",
                              child_frame_id = name+"/base_footprint")
     human_odom.add_interface("ros",topic="/"+name+"/base_pose_ground_truth",
                              frame_id = name+"/odom",
-                             child_frame_id = name+"/base_footprint")
+                             child_frame_id = name+"/base_footprint"
+                             )
     human.append(human_odom)
+
 
     if h_id==1:
         scan = Hokuyo()
@@ -72,9 +75,15 @@ ground_truth = Odometry()
 pr2.append(ground_truth)
 ground_truth.add_interface("ros", topic="base_pose_ground_truth")
 
+# Agent Marker to get the absolute position and velocity
+robot_marker = AgentMarker()
+robot_marker.add_interface("ros", topic="pr2_pose_vel")
+pr2.append(robot_marker)
+
 # put the robot and humans in some good places and add clock
 pr2.translate(2.0, 2.0, 0.0)
 pr2.append(clock)
+
 
 # HumanArray humans
 humans = []

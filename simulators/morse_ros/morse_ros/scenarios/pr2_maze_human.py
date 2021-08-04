@@ -29,10 +29,10 @@ def add_human(h_id):
 
     name = "human" + str(h_id)
 
-    ## human_marker sensor for the human
-    # human_marker = AgentMarker()
-    # human.append(human_marker)
-    # human_marker.add_interface("ros", topic="/"+name)
+    ## human_marker sensor for the human (necessary for absolute velocity)
+    human_marker = AgentMarker()
+    human.append(human_marker)
+    human_marker.add_interface("ros", topic="/"+name)
 
     human_motion = MotionXYW()
     human_motion.properties(ControlType='Position')
@@ -74,6 +74,10 @@ ground_truth = Odometry()
 pr2.append(ground_truth)
 ground_truth.add_interface("ros", topic="base_pose_ground_truth")
 
+# Agent Marker to get the absolute position and velocity
+robot_marker = AgentMarker()
+robot_marker.add_interface("ros", topic="pr2_pose_vel")
+pr2.append(robot_marker)
 
 # put the robot and humans in some good places and add clock
 pr2.translate(2.0, 2.0, 0.0)

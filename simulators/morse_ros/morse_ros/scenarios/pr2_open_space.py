@@ -19,6 +19,11 @@ ground_truth = Odometry()
 pr2.append(ground_truth)
 ground_truth.add_interface("ros", topic="base_pose_ground_truth")
 
+# Agent Marker to get the absolute position and velocity
+robot_marker = AgentMarker()
+robot_marker.add_interface("ros", topic="pr2_pose_vel")
+pr2.append(robot_marker)
+
 # set the environment to laas_adream
 env = Environment('open_space.blend', fastmode=False)
 env.set_camera_location([18.0, 4.0, 10.0])
