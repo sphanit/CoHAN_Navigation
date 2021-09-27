@@ -28,16 +28,16 @@ class StageAgents(object):
         agent_sub = []
 
         # Subscibe to human agents
-        if self.num_hum == 0:
-            sig_2 = True
+        if self.num_hum < 2:
+            self.sig_1 = True
 
         for agent_id in range(1,self.num_hum+1):
             name = 'human'+str(agent_id)
-            if self.ns is not name:
+            if self.ns != name:
                 agent_sub.append(message_filters.Subscriber("/" + name + "/base_pose_ground_truth", Odometry))
 
         # Subscribe to the robot
-        if self.ns is not "":
+        if self.ns != "":
             robot_sub = rospy.Subscriber("/base_pose_ground_truth", Odometry, self.RobotCB)
         else:
             self.sig_2 = True
@@ -67,6 +67,8 @@ class StageAgents(object):
             self.sig_1 = True
 
     def RobotCB(self, msg):
+        if self.num_hum < 2:
+            self.agents = TrackedAgents()
         agent_segment = TrackedSegment()
         agent_segment.type = self.Segment_Type
         agent_segment.pose.pose = msg.pose.pose
@@ -82,14 +84,14 @@ class StageAgents(object):
         if(self.sig_1 and self.sig_2):
             self.agents.header.stamp = rospy.Time.now()
             self.agents.header.frame_id = "map"
-            if(self.ns is not ""):
+            if(self.ns != ""):
                 self.agents.agents.append(self.robot)
             for agent_id in range(0, len(self.agents.agents)):
                 self.agents.agents[agent_id].track_id = agent_id+1
             self.tracked_agents_pub.publish(self.agents)
-            if self.num_hum is not 0:
+            if self.num_hum >= 2:
                 self.sig_1 = False
-            if self.ns is not "":
+            if self.ns != "":
                 self.sig_2 = False
 
 

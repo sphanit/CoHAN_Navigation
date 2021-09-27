@@ -11,7 +11,6 @@ import time
 from cohan_msgs.msg import TrackedAgents, TrackedAgent, AgentMarkerStamped, TrackedSegment, TrackedSegmentType, AgentType
 from geometry_msgs.msg import PointStamped, TwistStamped
 import message_filters
-# from nav_msgs.msg import Odometry
 
 
 class MorseAgents(object):
@@ -28,22 +27,20 @@ class MorseAgents(object):
 
     def AgentsPub(self):
         rospy.init_node('Morse_Agents', anonymous=True)
-        self.tfBuffer = tf2_ros.Buffer()
-        self.listener = tf2_ros.TransformListener(self.tfBuffer)
         agent_sub = []
 
         # Subscibe to human agents
-        if self.num_hum == 0:
-            sig_2 = True
+        if self.num_hum < 2:
+            self.sig_1 = True
 
         for agent_id in range(1,self.num_hum+1):
             name = 'human'+str(agent_id)
-            if self.ns is not name:
+            if self.ns != name:
                 # agent_sub.append(message_filters.Subscriber("/" + name + "/base_pose_ground_truth", Odometry))
                 agent_sub.append(message_filters.Subscriber("/" + name, AgentMarkerStamped))
 
         # Subscribe to the robot
-        if self.ns is not "":
+        if self.ns != "":
             # robot_sub = rospy.Subscriber("/base_pose_ground_truth", Odometry, self.RobotCB)
             robot_sub = rospy.Subscriber("/pr2_pose_vel", AgentMarkerStamped, self.RobotCB)
         else:
@@ -75,6 +72,8 @@ class MorseAgents(object):
             self.sig_1 = True
 
     def RobotCB(self, msg):
+        if self.num_hum < 2:
+            self.agents = TrackedAgents()
         agent_segment = TrackedSegment()
         agent_segment.type = self.Segment_Type
         agent_segment.pose.pose = msg.agent.pose
@@ -90,40 +89,15 @@ class MorseAgents(object):
         if(self.sig_1 and self.sig_2):
             self.agents.header.stamp = rospy.Time.now()
             self.agents.header.frame_id = "map"
-            if(self.ns is not ""):
+            if(self.ns != ""):
                 self.agents.agents.append(self.robot)
             for agent_id in range(0, len(self.agents.agents)):
                 self.agents.agents[agent_id].track_id = agent_id+1
             self.tracked_agents_pub.publish(self.agents)
-            if self.num_hum is not 0:
+            if self.num_hum >= 2:
                 self.sig_1 = False
-            if self.ns is not "":
+            if self.ns != "":
                 self.sig_2 = False
-
-    # def transform_twist(self, twist, name):
-    #     map_twist = TwistStamped()
-    #     map_twist.header.frame_id = name+"/odom";
-    #
-    #     pt = PointStamped()
-    #     pt.header.frame_id = name+"/base_footprint";
-    #
-    #     pt.point.x = twist.twist.linear.x
-    #     pt.point.y = twist.twist.linear.y
-    #     pt.point.z = twist.twist.linear.z
-    #     pt = self.tfBuffer.transform(pt,name+"/odom")
-    #     map_twist.twist.linear.x = pt.point.x
-    #     map_twist.twist.linear.y = pt.point.y
-    #     map_twist.twist.linear.z = pt.point.z
-    #
-    #     pt.point.x = twist.twist.angular.x
-    #     pt.point.y = twist.twist.angular.y
-    #     pt.point.z = twist.twist.angular.z
-    #     pt = self.tfBuffer.transform(pt,name+"/odom")
-    #     map_twist.twist.angular.x = pt.point.x
-    #     map_twist.twist.angular.y = pt.point.y
-    #     map_twist.twist.angular.z = pt.point.z
-    #
-    #     return map_twist
 
 
 if __name__ == '__main__':
