@@ -86,7 +86,7 @@ def main():
                     rospy.signal_shutdown("ERROR")
 
             if arm in ('--help', '-h'):
-                print __doc__ % vars()
+                print (__doc__ % vars())
     
     tuck_arm_client = actionlib.SimpleActionClient(action_name, TuckArmsAction)
     rospy.logdebug('Waiting for action server to start')
