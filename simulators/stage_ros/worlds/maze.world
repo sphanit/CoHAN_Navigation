@@ -376,7 +376,7 @@ window
 # load an environment bitmap
 floorplan
 (
-  name "laas"
+  name "maze"
   bitmap "maps/maze.pgm"
   size [45 90 2.0 ]
   pose [22.571 45.049 0.000 0.000]

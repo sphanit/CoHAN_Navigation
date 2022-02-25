@@ -70,7 +70,7 @@ window
 # load an environment bitmap
 floorplan
 (
-  name "laas"
+  name "open"
   bitmap "maps/open_space.pgm"
   size [46.4 28.8 2.0 ]
   pose [18.176 4.366 0.000 0.000]
