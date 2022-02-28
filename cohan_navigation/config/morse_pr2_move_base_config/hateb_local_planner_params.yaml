@@ -64,6 +64,7 @@ use_agent_agent_safety_c: True
 use_agent_robot_ttc_c: False
 use_agent_robot_ttclosest_c: False
 use_agent_robot_ttcplus_c: False
+add_invisible_humans: True
 scale_agent_robot_ttc_c: False
 scale_agent_robot_ttcplus_c: False
 ttc_threshold: 5.0
@@ -72,6 +73,7 @@ ttcplus_threshold: 5.0
 ttcplus_timer: 1.0
 rel_vel_cost_threshold: 1.5
 visibility_cost_threshold: 2.5
+invisible_human_threshold: 0.8
 min_agent_robot_dist: 0.6
 
 # GoalTolerance
@@ -80,7 +82,7 @@ yaw_goal_tolerance: 0.1
 free_goal_vel: True
 
 # Obstacles
-min_obstacle_dist: 0.3
+min_obstacle_dist: 0.2
 include_costmap_obstacles: True
 costmap_obstacles_behind_robot_dist: 0.5
 obstacle_poses_affected: 1
@@ -134,6 +136,7 @@ weight_agent_robot_ttc: 1.0
 weight_agent_robot_rel_vel: 5.0
 weight_agent_robot_ttcplus: 1.0
 weight_agent_robot_visibility: 5.0
+weight_invisible_human: 2.0
 weight_shortest_path: 0
 selection_alternative_time_cost: False
 cap_optimaltime_penalty: True
