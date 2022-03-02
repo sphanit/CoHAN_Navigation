@@ -6,7 +6,7 @@ import rospy
 from morse.builder import *
 from morse.core.services import service
 
-num_humans = 3
+num_humans = 1
 locations = [[3.0, 1.0, 0.0],[7.0, 5.0, 0.0],[7.0, 14.0, 0.0]]
 orientations = [0.0,0.7,1.57]
 
