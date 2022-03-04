@@ -1,0 +1,18 @@
+<launch>
+  <!-- static map and localization -->
+  <include file="$(find cohan_navigation)/pr2_launch/pr2_locate.launch"/>
+
+  <!-- navigation -->
+  <include file="$(find cohan_navigation)/pr2_launch/pr2_nav.launch"/>
+
+  <!-- Docking -->
+  <node pkg="base_nav" name="docking_node" type="docking_node" output="screen">
+      <param name="goal_tolerance" value="0.05" />
+      <param name="max_speed" value="0.2" />
+      <param name="P" value="2.0" />
+      <param name="I" value="0.3" />
+      <param name="max_integral" value="10" />
+      <param name="control_period" value="0.1" />
+  </node>
+
+</launch>
