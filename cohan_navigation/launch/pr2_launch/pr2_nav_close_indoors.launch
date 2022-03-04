@@ -18,7 +18,7 @@
 
 
   <!-- Launch the HATEB navigation node -->
-  <node pkg="move_base" type="move_base" name="move_base" output="screen" machine="c2">
+  <node pkg="move_base" type="move_base" name="move_base" output="screen" machine="c1">
     <remap from="scan" to="base_scan"/>
     <remap from="odom" to="base_odometry/odom" />
     <remap from="cmd_vel" to="navigation/cmd_vel" />

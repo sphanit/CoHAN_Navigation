@@ -1,9 +1,9 @@
 <launch>
   <!-- static map and localization -->
-  <include file="$(find cohan_navigation)/pr2_launch/pr2_locate.launch"/>
+  <include file="$(find cohan_navigation)/launch/pr2_launch/pr2_locate.launch"/>
 
   <!-- navigation -->
-  <include file="$(find cohan_navigation)/pr2_launch/pr2_nav.launch"/>
+  <include file="$(find cohan_navigation)/launch/pr2_launch/pr2_nav.launch"/>
 
   <!-- Docking -->
   <node pkg="base_nav" name="docking_node" type="docking_node" output="screen">
