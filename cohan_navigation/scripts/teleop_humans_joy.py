@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Brief: Node for controlling human avatars through joy stick
 # Author: Phani Teja Singamaneni
 
