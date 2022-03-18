@@ -1,5 +1,5 @@
 <launch>
-	<include file="$(find pr2_machine)/$(env-loader ROBOT).machine" />
+	<include file="$(find pr2_machine)/$(env ROBOT).machine" />
 
 	<!-- Launch the joystick teleop for navigation and mux -->
 	<include file="$(find pr2_navigation_teleop)/teleop.xml" />
