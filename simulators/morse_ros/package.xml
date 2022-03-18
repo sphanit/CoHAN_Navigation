@@ -10,6 +10,8 @@
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+   <build_depend>pr2_tuckarm</build_depend>
+   <run_depend>pr2_tuckarm</run_depend>
   <!-- todo: depend on morse? -->
 
 </package>
