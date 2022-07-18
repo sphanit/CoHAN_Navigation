@@ -5,8 +5,8 @@ planning_mode: 1
 
 # Trajectory
 teb_autosize: True
-dt_ref: 0.3
-dt_hysteresis: 0.1
+dt_ref: 0.125
+dt_hysteresis: 0.0125
 global_plan_overwrite_orientation: True
 allow_init_with_backwards_motion: False
 max_global_plan_lookahead_dist: 0.0
@@ -64,9 +64,9 @@ use_agent_agent_safety_c: True
 use_agent_robot_ttc_c: False
 use_agent_robot_ttclosest_c: False
 use_agent_robot_ttcplus_c: False
-add_invisible_humans: True
 scale_agent_robot_ttc_c: False
 scale_agent_robot_ttcplus_c: False
+add_invisible_humans: True
 ttc_threshold: 5.0
 ttclosest_threshold: 1.0
 ttcplus_threshold: 5.0
@@ -137,7 +137,7 @@ weight_agent_robot_rel_vel: 5.0
 weight_agent_robot_ttcplus: 1.0
 weight_agent_robot_visibility: 5.0
 weight_invisible_human: 2.0
-weight_shortest_path: 0
+weight_shortest_path: 1.0
 selection_alternative_time_cost: False
 cap_optimaltime_penalty: True
 

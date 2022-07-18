@@ -17,6 +17,7 @@
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/move_base_params.yaml" command="load" />
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/global_costmap_params.yaml" command="load" ns="global_costmap"/>
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/local_costmap_params.yaml" command="load" ns="local_costmap"/>
+      <!-- <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/hateb_local_planner_params_nh.yaml" command="load" ns="HATebLocalPlannerROS" /> -->
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/hateb_local_planner_params.yaml" command="load" ns="HATebLocalPlannerROS" />
     </node>
   </group>
