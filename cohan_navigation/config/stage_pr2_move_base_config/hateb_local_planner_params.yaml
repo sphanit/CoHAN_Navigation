@@ -137,7 +137,7 @@ weight_agent_robot_rel_vel: 5.0
 weight_agent_robot_ttcplus: 1.0
 weight_agent_robot_visibility: 5.0
 weight_invisible_human: 2.0
-weight_shortest_path: 0
+weight_shortest_path: 1.0
 selection_alternative_time_cost: False
 cap_optimaltime_penalty: True
 
