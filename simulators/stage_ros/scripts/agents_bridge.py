@@ -55,6 +55,7 @@ class StageAgents(object):
                 continue
             agent_segment = TrackedSegment()
             agent_segment.type = self.Segment_Type
+            # print(agent_id-1)
             agent_segment.pose.pose = msg[agent_id-1].pose.pose
             agent_segment.twist.twist = msg[agent_id-1].twist.twist
             tracked_agent = TrackedAgent()
