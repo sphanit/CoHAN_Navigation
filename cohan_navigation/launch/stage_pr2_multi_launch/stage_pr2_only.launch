@@ -48,6 +48,7 @@
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/open_space.yaml" if="$(eval 'open_space'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/mall.yaml" if="$(eval 'mall'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/simple_junction.yaml" if="$(eval 'simple_junction'==arg('map_name'))"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/junctions.yaml" if="$(eval 'junctions'==arg('map_name'))"/>
 
   <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/robot_only.launch">
     <arg name="node_start_delay" value="$(arg node_start_delay)" />
