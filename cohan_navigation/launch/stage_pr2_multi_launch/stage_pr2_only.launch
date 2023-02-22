@@ -42,6 +42,13 @@
     </include>
   </group>
 
+  <group if="$(eval 'hospital'==arg('map_name'))">
+     <include file="$(find stage_ros)/launch/stage_pr2_hospital.launch">
+       <arg name="fast_mode" value="$(arg fast_mode)"/>
+       <arg name="gui" value="$(arg gui)" unless="$(arg fast_mode)"/>
+     </include>
+   </group>
+
   <!-- start map_server with laas_adream map -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream_stage.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/maze.yaml" if="$(eval 'maze'==arg('map_name'))"/>
@@ -49,6 +56,7 @@
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/mall.yaml" if="$(eval 'mall'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/simple_junction.yaml" if="$(eval 'simple_junction'==arg('map_name'))"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/junctions.yaml" if="$(eval 'junctions'==arg('map_name'))"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/hospital.yaml" if="$(eval 'hospital'==arg('map_name'))"/>
 
   <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/robot_only.launch">
     <arg name="node_start_delay" value="$(arg node_start_delay)" />
