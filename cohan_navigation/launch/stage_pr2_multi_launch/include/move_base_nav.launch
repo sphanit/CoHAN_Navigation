@@ -26,19 +26,19 @@
     <!-- move_base node with hateb with namespace-->
     <node pkg="move_base" type="move_base" name="move_base" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
       <remap from="map" to="/map"/>
-      <remap from="/move_base/HATebLocalPlannerROS/agents_states" to="/$(arg ns)/move_base/HATebLocalPlannerROS/agents_states" />
+      <!-- <remap from="/move_base/HATebLocalPlannerROS/agents_states" to="/$(arg ns)/move_base/HATebLocalPlannerROS/agents_states" />
       <remap from="/move_base/GlobalPlanner/make_plan" to="/$(arg ns)/move_base/GlobalPlanner/make_plan"/>
-      <remap from="/tracked_agents" to="/$(arg ns)/tracked_agents"/>
+      <remap from="/tracked_agents" to="/$(arg ns)/tracked_agents"/> -->
 
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/move_base_params.yaml" command="load" />
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/global_costmap_params_human.yaml" command="load" ns="global_costmap" />
       <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/local_costmap_params_human.yaml" command="load" ns="local_costmap" />
-      <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/hateb_local_planner_params_human.yaml" command="load" ns="HATebLocalPlannerROS" />
+      <!-- <rosparam file="$(find cohan_navigation)/config/stage_pr2_move_base_config/hateb_local_planner_params_human.yaml" command="load" ns="HATebLocalPlannerROS" /> -->
 
-      <param name="ns" value="$(arg ns)"/>
+      <!-- <param name="ns" value="$(arg ns)"/>
       <param name="base_global_planner" value="global_planner/GlobalPlanner" />
       <param name="base_local_planner" value="hateb_local_planner/HATebLocalPlannerROS" />
-      <param name="GlobalPlanner/allow_unknown" value="true" />
+      <param name="GlobalPlanner/allow_unknown" value="true" /> -->
 
 
       <param name="global_costmap/robot_base_frame" value="$(arg ns)/base_link"/>
