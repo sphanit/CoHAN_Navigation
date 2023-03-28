@@ -3,6 +3,8 @@
   <arg name="localize" default="fake"/>
   <arg name="num_agents" default="1"/>
   <arg name="node_start_delay" default="2.0"/>
+  <arg name="robot_planner" default="cohan"/>
+
 
   <!-- start map_server with laas_adream map -->
   <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
@@ -14,6 +16,7 @@
     <arg name="node_start_delay" value="$(arg node_start_delay)" />
     <arg name="localize" value="$(arg localize)"/>
     <arg name="num_agents" value="$(arg num_agents)"/>
+    <arg name="robot_planner" value="$(arg robot_planner)"/>
   </include>
 
   <!-- Rviz -->

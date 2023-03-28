@@ -3,6 +3,8 @@
   <arg name="node_start_delay" default="4.0" />
   <arg name="localize" default="fake"/>
   <arg name="num_agents" default="2"/>
+  <arg name="robot_planner" default="cohan"/>
+
 
   <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/robo_description.launch"/>
 
@@ -12,6 +14,7 @@
 
   <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/move_base_nav.launch">
     <arg name="node_start_delay" value="$(arg node_start_delay)"/>
+    <arg name="robot_planner" value="$(arg robot_planner)"/>
   </include>
 
   <include file="$(find cohan_navigation)/launch/stage_pr2_multi_launch/include/localization.launch">
