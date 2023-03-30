@@ -24,7 +24,7 @@ obstacle_layer:
   observation_sources: scan
   scan:
     data_type: LaserScan
-    topic: /scan
+    topic: robot_pose_LaserScan
     marking: true
     clearing: true
     inf_is_valid: true
