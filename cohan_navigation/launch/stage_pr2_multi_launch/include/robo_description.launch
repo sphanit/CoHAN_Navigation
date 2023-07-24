@@ -7,5 +7,5 @@
     <param name="rate" value="50"/>
   </node>
 
-  <node name="stage_joints" pkg="stage_ros" type="stage_joints.py"/>
+  <!-- <node name="stage_joints" pkg="stage_ros" type="stage_joints.py"/> -->
 </launch>

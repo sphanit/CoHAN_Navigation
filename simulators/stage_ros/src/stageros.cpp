@@ -472,7 +472,7 @@ StageNode::WorldCallback()
                 msg.range_max = sensor.range.max;
                 msg.ranges.resize(sensor.ranges.size());
                 msg.intensities.resize(sensor.intensities.size());
-
+                std::cout << msg.range_max << std::endl;
                 for(unsigned int i = 0; i < sensor.ranges.size(); i++)
                 {
                     msg.ranges[i] = sensor.ranges[i];
