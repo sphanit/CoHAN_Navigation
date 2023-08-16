@@ -4,7 +4,7 @@ project(webots_ros)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs message_generation tf moveit_ros_planning_interface geometry_msgs nav_msgs yolov8_data)
+find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs pedsim_msgs sensor_msgs message_generation tf moveit_ros_planning_interface geometry_msgs nav_msgs yolov8_data)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -156,6 +156,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs messag
     std_msgs
     sensor_msgs
     yolov8_data
+    pedsim_msgs
   )
 
 ###################################
@@ -170,7 +171,7 @@ find_package(catkin REQUIRED COMPONENTS roscpp rospy std_msgs sensor_msgs messag
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES webots_ros
-   CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs message_runtime tf yolov8_data
+   CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs message_runtime tf yolov8_data pedsim_msgs
 #  DEPENDS system_lib
 )
 

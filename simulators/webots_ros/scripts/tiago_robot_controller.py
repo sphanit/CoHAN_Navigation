@@ -10,10 +10,14 @@ import cv2
 import time
 from threading import Thread, Event
 
+import imagehash
+from PIL import Image
+
 import rospy
 from sensor_msgs.msg import *
 from geometry_msgs.msg import *
 from nav_msgs.msg import *
+
 import tf
 
 class Tiago (Supervisor):
@@ -22,11 +26,11 @@ class Tiago (Supervisor):
         self.timeStep = int(self.getBasicTimeStep())   
 
         # Camera RGBD
-        # self.camera_color = self.getDevice("camera_color")
-        # self.camera_color.enable(16)
-        # self.camera_depth = self.getDevice("camera_depth")
-        # self.camera_depth.enable(16)
-        # self.camera_node = self.getFromDef("rgb")
+        self.camera_color = self.getDevice("camera_color")
+        self.camera_color.enable(16)
+        self.camera_depth = self.getDevice("camera_depth")
+        self.camera_depth.enable(16)
+        self.camera_node = self.getFromDef("rgb")
 
         # Head joints
         self.head_1 = self.getDevice("head_1_joint")
@@ -65,11 +69,11 @@ class Tiago (Supervisor):
 
         ##### TESTING CAMERA #####
 
-        # color = cv2.cvtColor(np.frombuffer(color, np.uint8).reshape(self.camera_color.getHeight(), self.camera_color.getWidth(), 4), cv2.COLOR_RGBA2RGB )
+        color = cv2.cvtColor(np.frombuffer(color, np.uint8).reshape(self.camera_color.getHeight(), self.camera_color.getWidth(), 4), cv2.COLOR_RGBA2RGB )
         # depth = np.ctypeslib.as_array(depth, (self.camera_depth.getWidth() * self.camera_depth.getHeight(),)).reshape(self.camera_depth.getHeight(), self.camera_depth.getWidth(), 1)
 
         # cv2.imshow("color_image", color)
-        # cv2.imshow("depth_image", depth)
+        # # cv2.imshow("depth_image", depth)
         # cv2.waitKey(1)
     
     def get_lidar_data(self, timestamp):
@@ -106,7 +110,7 @@ class Tiago (Supervisor):
         odometry_message = Odometry()
         odometry_message.header.stamp = timestamp
         odometry_message.header.frame_id = "odom"
-        # robot_pose_ground_truth = self.camera_node.getPosition()
+        camera_pose_ground_truth = self.camera_node.getPosition()
         robot_pose_ground_truth = self.robot_node.getPosition()
         robot_speed = self.robot_node.getVelocity()
         robot_orientation = self.robot_node.getOrientation()
@@ -120,7 +124,6 @@ class Tiago (Supervisor):
         rotation_matrix = np.array([[math.cos(robot_orientation_world_z), -math.sin(robot_orientation_world_z)],[math.sin(robot_orientation_world_z), math.cos(robot_orientation_world_z)]])
         lin_speed = np.array([robot_speed[0], robot_speed[1]])
         converted_speed = np.matmul(np.linalg.inv(rotation_matrix), lin_speed)
-        print("CONVERTED SPEED:", converted_speed)
         odometry_message.twist.twist.linear.x = round(converted_speed[0], 3)
         odometry_message.twist.twist.linear.y = round(converted_speed[1], 3)
         odometry_message.twist.twist.angular.z = round(robot_speed[5], 3)
@@ -128,7 +131,16 @@ class Tiago (Supervisor):
         # self.tf_sender.sendTransform((0, 0, 0), tf.transformations.quaternion_from_euler(0, 0, 0), timestamp, "base_footprint", "base_link")
         # self.tf_sender.sendTransform((robot_pose_ground_truth[0], robot_pose_ground_truth[1], 0), yaw_to_euler, timestamp, "base_link", "odom")
         self.odom_publisher.publish(odometry_message)
-        odometry_message.header.frame_id = "odom"
+
+        camera_odometry_message = Odometry()
+        camera_odometry_message.header.stamp = timestamp
+        camera_odometry_message.header.frame_id = "camera_odom"
+        camera_odometry_message.pose.pose.position.x = robot_pose_ground_truth[0]
+        camera_odometry_message.pose.pose.position.y = robot_pose_ground_truth[1]
+        camera_odometry_message.pose.pose.position.z = robot_pose_ground_truth[2]
+        camera_odometry_message.pose.pose.orientation = odometry_message.pose.pose.orientation
+
+        self.camera_odom_publisher.publish(camera_odometry_message)
         self.pose_ground_truth_publisher.publish(odometry_message)
         
     def set_speed(self, data):
@@ -156,7 +168,7 @@ class Tiago (Supervisor):
 
     def publish_data(self):
         act_timestamp = rospy.Time.now()
-        # self.get_camera_image(act_timestamp)
+        self.get_camera_image(act_timestamp)
         self.get_pose_data(act_timestamp)        
         self.get_lidar_data(act_timestamp)
 
@@ -170,6 +182,7 @@ class Tiago (Supervisor):
         Robot.__init__(self)
         self.findAndEnableDevices()
         self.odom_publisher = rospy.Publisher("/odom", Odometry, queue_size=5)
+        self.camera_odom_publisher = rospy.Publisher("/camera_odom", Odometry, queue_size=5)
         self.pose_ground_truth_publisher = rospy.Publisher("/base_pose_ground_truth", Odometry, queue_size=5)
         # self.odom_publisher = rospy.Publisher("/base_pose_ground_truth", Odometry, queue_size=10)
         self.camera_color_publisher = rospy.Publisher("/xtion/rgb/image_raw", Image, queue_size=5)

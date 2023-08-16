@@ -35,7 +35,7 @@ class StageAgents(object):
 
         # Subscribe to the robot
         # if self.ns != "":
-        robot_sub = rospy.Subscriber("/base_pose_ground_truth", Odometry, self.RobotCB)
+        # robot_sub = rospy.Subscriber("/base_pose_ground_truth", Odometry, self.RobotCB)
         # else:
         self.sig_2 = True
 
@@ -57,8 +57,8 @@ class StageAgents(object):
             # print(agent_segment.pose.pose)
             agent_segment.twist.twist = agent.speed
 
-            speed_modulus = math.sqrt(agent.speed.linear.x ** 2 + agent.speed.linear.y ** 2)
-            print("SPEED", speed_modulus)
+            # speed_modulus = math.sqrt(agent.speed.linear.x ** 2 + agent.speed.linear.y ** 2)
+            # print("SPEED eee", speed_modulus)
                 
             tracked_agent = TrackedAgent()
             tracked_agent.type = AgentType.HUMAN
@@ -84,18 +84,17 @@ class StageAgents(object):
         self.sig_2 = True
 
     def publishAgents(self, event):
-        if(self.sig_1 and self.sig_2):
+        if self.sig_1:
             self.agents.header.stamp = rospy.Time.now()
             self.agents.header.frame_id = "map"
             # if(self.ns != ""):
-            self.agents.agents.append(self.robot)
+            # self.agents.agents.append(self.robot)
             # for agent_id in range(0, len(self.agents.agents)):
             #     self.agents.agents[agent_id].track_id = agent_id+1
             self.tracked_agents_pub.publish(self.agents)
             # if self.num_hum >= 2:
             self.sig_1 = False
             # if self.ns != "":
-            self.sig_2 = False
 
 
 if __name__ == '__main__':

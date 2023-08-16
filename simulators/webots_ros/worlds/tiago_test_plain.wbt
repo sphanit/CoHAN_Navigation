@@ -9,8 +9,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.38113223938779384 -0.11210135434798445 0.9176990260715072 3.5107545874388957
-  position 18.794446134435425 3.9475138169275255 14.782691794348981
+  orientation -0.15848676111521567 -0.03563945380318343 0.9867176779017488 3.1982914502434694
+  position 27.60627086233591 1.4313377636711193 7.686173906404173
 }
 TexturedBackground {
 }
@@ -19,7 +19,7 @@ TexturedBackgroundLight {
 }
 RectangleArena {
   translation 6.59 7.83 0
-  floorSize 15 42
+  floorSize 60 60
   floorAppearance Parquetry {
     type "light strip"
   }
@@ -38,6 +38,7 @@ DEF Human1 Robot {
   translation 6 2 0
   children [
     CharacterSkin {
+      scale 0.8 0.8 0.8
       name "skin1"
       model "Robert"
     }
@@ -45,11 +46,6 @@ DEF Human1 Robot {
   name "Human1"
   controller "<extern>"
   supervisor TRUE
-}
-CadShape {
-  url [
-    "../maps/laas_adream.dae"
-  ]
 }
 DEF TIAGO Robot {
   translation 7.999998393103879 2.0000197015284384 0.09020613417259268

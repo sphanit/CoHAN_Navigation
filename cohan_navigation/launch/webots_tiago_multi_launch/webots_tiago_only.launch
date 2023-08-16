@@ -1,5 +1,5 @@
 <launch>
-  <arg name="map_name" default="laas_adream"/>
+  <arg name="map_name" default="open_space"/>
   <arg name="localize" default="fake"/>
   <arg name="gui" default="false"/>
   <arg name="fast_mode" default="false"/>
@@ -7,13 +7,13 @@
   <arg name="num_agents" default="0"/>
 
   <!-- Webots simulator and robot robot description -->
-  <group if="$(eval 'laas_adream'==arg('map_name'))">
-    <include file="$(find webots_ros)/launch/webots_tiago_laas_adream.launch">
+  <group if="$(eval 'open_space'==arg('map_name'))">
+    <include file="$(find webots_ros)/launch/webots_tiago_open_space.launch">
     </include>
   </group>
 
-  <!-- start map_server with laas_adream map -->
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream_stage.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/>
+  <!-- start map_server with open_space map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/open_space.yaml" if="$(eval 'open_space'==arg('map_name'))"/>
 
   <include file="$(find cohan_navigation)/launch/webots_tiago_multi_launch/include/robot_only.launch">
     <arg name="node_start_delay" value="$(arg node_start_delay)" />
