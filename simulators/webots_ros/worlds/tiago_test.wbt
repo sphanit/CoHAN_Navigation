@@ -9,8 +9,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/project
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.20337897758443796 -0.9744925376461384 0.09487510499966864 5.9108210218291966
-  position 1.8184030710874695 2.535638066318421 3.850743623512991
+  orientation 0.026966439708158978 -0.9992609621120782 0.027392347988260016 5.200804276677025
+  position -4.241057488170389 -5.557347856507178 28.187811681879044
 }
 TexturedBackground {
 }
@@ -35,7 +35,7 @@ PointLight {
   location 7 20 3
 }
 DEF Human1 Robot {
-  translation 6 2 0
+  translation 12.09 -0.37 0
   rotation 0 0 1 3.14159
   children [
     CharacterSkin {
@@ -54,8 +54,8 @@ CadShape {
   ]
 }
 DEF TIAGO Robot {
-  translation 7.999998393103879 2.0000197015284384 0.09020613417259268
-  rotation 0.01369298320917209 -0.0023931020561705194 0.9999033829692657 3.14158297247
+  translation 7.99991089754935 2.0010177572340435 0.08583145598298528
+  rotation 0.012865321128951 0.0023157824108299865 0.9999145566817572 3.141567048849782
   children [
     DEF BODY_EXTENSION Pose {
       children [
@@ -178,7 +178,7 @@ DEF TIAGO Robot {
             }
             DEF TORSO_LIFT_JOINT SliderJoint {
               jointParameters JointParameters {
-                position -0.0004119174916598753
+                position -0.00042677588208116886
                 dampingConstant 1000
               }
               device [
@@ -194,7 +194,7 @@ DEF TIAGO Robot {
                 }
               ]
               endPoint DEF TORSO_LIFT Solid {
-                translation 0 0 0.5995880825083402
+                translation 0 0 0.5995732241179189
                 rotation 0.9273089253913606 0.09850094807618788 0.3611034756376796 0
                 children [
                   DEF ARM_RIGHT_EXTENSION Pose {
@@ -248,7 +248,7 @@ DEF TIAGO Robot {
                           }
                           DEF ARM_RIGHT_1_JOINT HingeJoint {
                             jointParameters HingeJointParameters {
-                              position -0.43019685463535295
+                              position -0.4301669436069837
                               axis 0 0 1
                               anchor 0.025 -0.194 -0.17
                               dampingConstant 1
@@ -267,8 +267,8 @@ DEF TIAGO Robot {
                               }
                             ]
                             endPoint DEF ARM_RIGHT_1 Solid {
-                              translation 0.025090888366911472 -0.19404170497284726 -0.171
-                              rotation 0 0 1 1.140603145364576
+                              translation 0.025090889614309442 -0.1940417022542641 -0.171
+                              rotation 0 0 1 1.1406330563929452
                               children [
                                 Transform {
                                   scale -1 1 1
@@ -375,7 +375,7 @@ DEF TIAGO Robot {
                                 }
                                 DEF ARM_RIGHT_2_JOINT HingeJoint {
                                   jointParameters HingeJointParameters {
-                                    position -0.7699301460033687
+                                    position -0.7699237894275864
                                     axis 0 -1 0
                                     anchor -0.125 0.0195 -0.031
                                     dampingConstant 1
@@ -395,7 +395,7 @@ DEF TIAGO Robot {
                                   ]
                                   endPoint DEF ARM_RIGHT_2 Solid {
                                     translation -0.125 0.018 -0.031
-                                    rotation 0.8676507344109359 0.35155461533397186 -0.3515559066685503 1.7122915048729999
+                                    rotation 0.8676526929036692 0.35155219851294156 -0.3515534898386426 1.7122892701971273
                                     children [
                                       Transform {
                                         scale -1 1 1
@@ -432,7 +432,7 @@ DEF TIAGO Robot {
                                       }
                                       DEF ARM_RIGHT_3_JOINT HingeJoint {
                                         jointParameters HingeJointParameters {
-                                          position 6.676407872139354e-05
+                                          position 8.403503902317894e-05
                                           anchor 0.0895 0 -0.0015
                                           dampingConstant 1
                                           staticFriction 1
@@ -450,8 +450,8 @@ DEF TIAGO Robot {
                                           }
                                         ]
                                         endPoint DEF ARM_RIGHT_3 Solid {
-                                          translation -0.0865999999999919 -1.0014611800769676e-07 -3.343096849697802e-12
-                                          rotation 0.5773631174409942 0.5773245717200831 0.5773631175499865 2.0944385466877127
+                                          translation -0.08659999999999185 -1.260525583864123e-07 -5.296431262319379e-12
+                                          rotation 0.5773664409694519 0.5773179241337676 0.5773664411066389 2.094448518331894
                                           children [
                                             Transform {
                                               scale -1 1 1
@@ -556,7 +556,7 @@ DEF TIAGO Robot {
                                             }
                                             DEF ARM_RIGHT_4_JOINT HingeJoint {
                                               jointParameters HingeJointParameters {
-                                                position 1.5597969936358294
+                                                position 1.5598049498776176
                                                 axis 0 -1 0
                                                 anchor 0.02 0 -0.223
                                                 dampingConstant 1
@@ -576,7 +576,7 @@ DEF TIAGO Robot {
                                               ]
                                               endPoint DEF ARM_RIGHT_4 Solid {
                                                 translation 0.02 -0.025999999999999995 -0.223
-                                                rotation -0.9999697389616516 0.005502367595489132 0.005499555601154538 1.5708294314769302
+                                                rotation -0.9999697827114223 0.005498389726550905 0.005495577720844653 1.5708293877145878
                                                 children [
                                                   Transform {
                                                     scale -1 1 1
@@ -681,7 +681,7 @@ DEF TIAGO Robot {
                                                   }
                                                   DEF ARM_RIGHT_5_JOINT HingeJoint {
                                                     jointParameters HingeJointParameters {
-                                                      position 1.4099688062158549
+                                                      position 1.4099753820405283
                                                       anchor 0.163 0.02 0.027
                                                       dampingConstant 1
                                                       staticFriction 1
@@ -700,7 +700,7 @@ DEF TIAGO Robot {
                                                     ]
                                                     endPoint DEF ARM_RIGHT_5 Solid {
                                                       translation 0.163 0.02 0.027
-                                                      rotation 0.6058990114933451 -0.5155283993380554 0.6059016895069115 4.093583657987247
+                                                      rotation 0.6058979387329316 -0.515530920944151 0.605900616759597 4.093587642269389
                                                       children [
                                                         Transform {
                                                           scale -1 1 1
@@ -744,7 +744,7 @@ DEF TIAGO Robot {
                                                         }
                                                         DEF ARM_RIGHT_6_JOINT HingeJoint {
                                                           jointParameters HingeJointParameters {
-                                                            position 0.16182091307868646
+                                                            position 0.16181978185710966
                                                             axis 0 -1 0
                                                             anchor 0 0 0.15
                                                             dampingConstant 1
@@ -764,7 +764,7 @@ DEF TIAGO Robot {
                                                           ]
                                                           endPoint DEF ARM_RIGHT_6 Solid {
                                                             translation 0 0 0.15
-                                                            rotation -0.6395342544004807 0.5435973842729968 0.5435971129981995 2.0036319793474657
+                                                            rotation -0.6395338211824826 0.543597639109214 0.5435973678363624 2.0036325942766995
                                                             children [
                                                               Transform {
                                                                 scale -1 1 1
@@ -808,7 +808,7 @@ DEF TIAGO Robot {
                                                               }
                                                               DEF ARM_RIGHT_7_JOINT HingeJoint {
                                                                 jointParameters HingeJointParameters {
-                                                                  position 1.045736695132295e-05
+                                                                  position 1.2210210485961607e-05
                                                                   axis -1 0 0
                                                                   dampingConstant 1
                                                                   staticFriction 1
@@ -827,7 +827,7 @@ DEF TIAGO Robot {
                                                                 ]
                                                                 endPoint DEF WRIST Solid {
                                                                   translation -0.05500000000000001 0 0
-                                                                  rotation -0.5773522816889319 -0.5773462441528975 0.5773522817060023 2.0944060375741294
+                                                                  rotation -0.5773526190180965 -0.5773455694840602 0.5773526190380284 2.0944070495826397
                                                                   children [
                                                                     Transform {
                                                                       rotation 1 0 0 1.570796
@@ -2540,7 +2540,7 @@ DEF TIAGO Robot {
                                                                                 }
                                                                                 DEF LEFT_GRIPPER_JOINT SliderJoint {
                                                                                   jointParameters JointParameters {
-                                                                                    position -1.8637474655033547e-07
+                                                                                    position -3.261776180158831e-07
                                                                                     axis -1 0 0
                                                                                     dampingConstant 80
                                                                                   }
@@ -2557,7 +2557,7 @@ DEF TIAGO Robot {
                                                                                     }
                                                                                   ]
                                                                                   endPoint DEF LEFT_GRIPPER Solid {
-                                                                                    translation 1.8637474655033547e-07 0 0
+                                                                                    translation 3.261776180158831e-07 0 0
                                                                                     rotation 0 0 1 3.1415
                                                                                     children [
                                                                                       DEF GRIPPER_SHAPE Group {
@@ -2689,11 +2689,13 @@ DEF TIAGO Robot {
                                                                                       density -1
                                                                                       mass 0.10998
                                                                                     }
+                                                                                    linearVelocity 4.940746281016305e-05 5.722253139243363e-05 -7.089574363938295e-06
+                                                                                    angularVelocity -7.196330224765154e-05 -6.414731159632854e-05 0.0002484650627320592
                                                                                   }
                                                                                 }
                                                                                 DEF RIGHT_GRIPPER_JOINT SliderJoint {
                                                                                   jointParameters JointParameters {
-                                                                                    position 1.310330226647978e-06
+                                                                                    position 1.4501295264865097e-06
                                                                                     axis 1 0 0
                                                                                     dampingConstant 80
                                                                                   }
@@ -2709,7 +2711,7 @@ DEF TIAGO Robot {
                                                                                     }
                                                                                   ]
                                                                                   endPoint DEF RIGHT_GRIPPER Solid {
-                                                                                    translation 1.310330226647978e-06 0 0
+                                                                                    translation 1.4501295264865097e-06 0 0
                                                                                     rotation 0 0 -1 0
                                                                                     children [
                                                                                       Pose {
@@ -2846,6 +2848,8 @@ DEF TIAGO Robot {
                                                                                       density -1
                                                                                       mass 0.10998
                                                                                     }
+                                                                                    linearVelocity 5.1665295565598296e-05 5.5815088412667026e-05 -6.798946134593804e-06
+                                                                                    angularVelocity -7.196330131255646e-05 -6.414733280917241e-05 0.0002484650812662989
                                                                                   }
                                                                                 }
                                                                               ]
@@ -2977,6 +2981,8 @@ DEF TIAGO Robot {
                                                                     mass 0.234
                                                                   }
                                                                   translationStep 0.001
+                                                                  linearVelocity 4.1054669069342766e-05 5.493461880254222e-05 -1.0098252064237901e-05
+                                                                  angularVelocity -7.196341728471785e-05 -6.414756297374474e-05 0.0002484649032993391
                                                                 }
                                                               }
                                                             ]
@@ -2995,6 +3001,8 @@ DEF TIAGO Robot {
                                                               density -1
                                                               mass 0.370063
                                                             }
+                                                            linearVelocity 3.5728217830812654e-05 5.408256311667394e-05 -1.1844706474842484e-05
+                                                            angularVelocity -6.86299111595797e-05 -5.505357287556811e-05 0.00023385694179370255
                                                           }
                                                         }
                                                       ]
@@ -3034,6 +3042,8 @@ DEF TIAGO Robot {
                                                         density -1
                                                         mass 1.655819
                                                       }
+                                                      linearVelocity 2.6358308380215468e-05 5.432302772512424e-05 -1.451685454449564e-05
+                                                      angularVelocity -6.863395038717927e-05 -5.5060954113247994e-05 0.00023385174282541623
                                                     }
                                                   }
                                                 ]
@@ -3065,6 +3075,8 @@ DEF TIAGO Robot {
                                                   density -1
                                                   mass 1.432697
                                                 }
+                                                linearVelocity 8.213538415834294e-06 5.72980965170962e-05 -1.9231718074599347e-05
+                                                angularVelocity -5.0888503029519214e-05 -1.3910824487287532e-05 0.0001851375505463492
                                               }
                                             }
                                           ]
@@ -3097,6 +3109,8 @@ DEF TIAGO Robot {
                                             mass 2.343502
                                           }
                                           translationStep 0.0001
+                                          linearVelocity 1.1912561042931585e-05 4.638542307823386e-05 -1.89643099457281e-05
+                                          angularVelocity -5.0912519679931564e-05 -1.3956783849995843e-05 0.00018509979257395816
                                         }
                                       }
                                     ]
@@ -3128,6 +3142,8 @@ DEF TIAGO Robot {
                                       density -1
                                       mass 1.800397
                                     }
+                                    linearVelocity 3.495545492603138e-05 2.5471974260913993e-05 -1.1714340995598144e-05
+                                    angularVelocity 4.425207711150077e-06 0.00010041491963791067 0.00030478399238614633
                                   }
                                 }
                               ]
@@ -3175,6 +3191,8 @@ DEF TIAGO Robot {
                                 density -1
                                 mass 1.563428
                               }
+                              linearVelocity 6.007414911441432e-05 2.1017505739132832e-05 -1.0537273548581738e-05
+                              angularVelocity 4.375061754650802e-06 0.00010029958796989156 0.0003048177256012959
                             }
                           }
                         ]
@@ -3264,7 +3282,7 @@ DEF TIAGO Robot {
                           }
                           DEF ARM_LEFT_1_JOINT HingeJoint {
                             jointParameters HingeJointParameters {
-                              position 0.7398575919921312
+                              position 0.7398787335671152
                               axis 0 0 -1
                               anchor 0.025 0.194 -0.16
                               dampingConstant 1
@@ -3283,8 +3301,8 @@ DEF TIAGO Robot {
                               }
                             ]
                             endPoint DEF ARM_LEFT_1 Solid {
-                              translation 0.025073856457524028 0.19393258172590444 -0.171
-                              rotation 0 0 1 0.8309424080077902
+                              translation 0.025073855032179022 0.19393258016447767 -0.171
+                              rotation 0 0 0.9999999999999999 0.8309212664328063
                               children [
                                 DEF ARM_LEFT_1_SH1 Shape {
                                   appearance PBRAppearance {
@@ -3383,7 +3401,7 @@ DEF TIAGO Robot {
                                 }
                                 DEF ARM_LEFT_2_JOINT HingeJoint {
                                   jointParameters HingeJointParameters {
-                                    position -0.9499927752092093
+                                    position -0.9499916029166966
                                     axis 0 1 0
                                     anchor 0.125 0.0195 -0.031
                                     dampingConstant 1
@@ -3403,7 +3421,7 @@ DEF TIAGO Robot {
                                   ]
                                   endPoint DEF ARM_LEFT_2 Solid {
                                     translation 0.125 0.018 -0.031
-                                    rotation 0.8087322087275401 -0.41590320016395554 0.4159047278645137 1.7815105938080706
+                                    rotation 0.8087326119516801 -0.4159028081263536 0.4159043358254716 1.7815101062480927
                                     children [
                                       DEF ARM_LEFT_2_SH1 Shape {
                                         appearance PBRAppearance {
@@ -3434,7 +3452,7 @@ DEF TIAGO Robot {
                                       }
                                       DEF ARM_LEFT_3_JOINT HingeJoint {
                                         jointParameters HingeJointParameters {
-                                          position 0.06001860725345542
+                                          position 0.0600237181913717
                                           anchor 0.0895 0 -0.0015
                                           dampingConstant 1
                                           staticFriction 1
@@ -3453,7 +3471,7 @@ DEF TIAGO Robot {
                                         ]
                                         endPoint DEF ARM_LEFT_3 Solid {
                                           translation 0.0872 0 -0.0015
-                                          rotation 0.588526106507961 -0.5543208443155871 -0.5885281841304075 2.1293895359514075
+                                          rotation 0.5885270322992736 -0.5543188782836208 -0.5885291100968567 2.129392543874166
                                           children [
                                             DEF ARM_LEFT_3_SH1 Shape {
                                               appearance PBRAppearance {
@@ -3550,7 +3568,7 @@ DEF TIAGO Robot {
                                             }
                                             DEF ARM_LEFT_4_JOINT HingeJoint {
                                               jointParameters HingeJointParameters {
-                                                position 1.559819423531426
+                                                position 1.5598294098680645
                                                 axis 0 1 0
                                                 anchor -0.02 -0.027 -0.222
                                                 dampingConstant 1
@@ -3570,7 +3588,7 @@ DEF TIAGO Robot {
                                               ]
                                               endPoint DEF ARM_LEFT_4 Solid {
                                                 translation -0.02 -0.027 -0.222
-                                                rotation -0.9999698622179802 -0.0054911533570976235 -0.005488341330705483 1.5708293081851725
+                                                rotation -0.9999699170137867 -0.005486160503736539 -0.0054833484630712635 1.5708292533735968
                                                 children [
                                                   DEF ARM_LEFT_4_SH1 Shape {
                                                     appearance PBRAppearance {
@@ -3667,7 +3685,7 @@ DEF TIAGO Robot {
                                                   }
                                                   DEF ARM_LEFT_5_JOINT HingeJoint {
                                                     jointParameters HingeJointParameters {
-                                                      position 1.4499564295448863
+                                                      position 1.4499645673484263
                                                       anchor -0.162 0.02 0.027
                                                       dampingConstant 1
                                                       staticFriction 1
@@ -3686,7 +3704,7 @@ DEF TIAGO Robot {
                                                     ]
                                                     endPoint DEF ARM_LEFT_5 Solid {
                                                       translation -0.162 0.02 0.027
-                                                      rotation 0.5526502616257727 -0.6238213950195242 -0.552652291627258 2.02609329222056
+                                                      rotation 0.5526520246367143 -0.6238182712535282 -0.5526540546446755 2.026097789586989
                                                       children [
                                                         DEF ARM_LEFT_5_SH1 Shape {
                                                           appearance PBRAppearance {
@@ -3724,7 +3742,7 @@ DEF TIAGO Robot {
                                                         }
                                                         DEF ARM_LEFT_6_JOINT HingeJoint {
                                                           jointParameters HingeJointParameters {
-                                                            position 0.16181593858156784
+                                                            position 0.16181444064426653
                                                             axis 0 -1 0
                                                             anchor 0 0 0.15
                                                             dampingConstant 1
@@ -3744,7 +3762,7 @@ DEF TIAGO Robot {
                                                           ]
                                                           endPoint DEF ARM_LEFT_6 Solid {
                                                             translation 0 0 0.15
-                                                            rotation -0.5151486274143345 -0.6060617048095485 -0.6060619618788747 2.1902117910529793
+                                                            rotation -0.5151492017957756 -0.6060614607002707 -0.6060617177672827 2.1902108832107277
                                                             children [
                                                               DEF ARM_LEFT_6_SH1 Shape {
                                                                 appearance PBRAppearance {
@@ -3782,7 +3800,7 @@ DEF TIAGO Robot {
                                                               }
                                                               DEF ARM_LEFT_7_JOINT HingeJoint {
                                                                 jointParameters HingeJointParameters {
-                                                                  position 7.384860508133476e-06
+                                                                  position 9.656022525615847e-06
                                                                   axis -1 0 0
                                                                   dampingConstant 1
                                                                   staticFriction 1
@@ -3800,8 +3818,8 @@ DEF TIAGO Robot {
                                                                   }
                                                                 ]
                                                                 endPoint DEF WRIST Solid {
-                                                                  translation 0.054999999999999986 0 0
-                                                                  rotation 0.577348847975348 0.5773531116197412 0.5773488479632923 2.0943957363540178
+                                                                  translation 0.05499999999999997 0 0
+                                                                  rotation 0.5773484108887617 0.5773539857891735 0.5773484108729983 2.09439442510174
                                                                   children [
                                                                     Pose {
                                                                       rotation 1 0 0 1.570796
@@ -5512,7 +5530,7 @@ DEF TIAGO Robot {
                                                                                 }
                                                                                 DEF LEFT_GRIPPER_JOINT SliderJoint {
                                                                                   jointParameters JointParameters {
-                                                                                    position -1.183391793346993e-07
+                                                                                    position -2.0548871939477255e-07
                                                                                     axis -1 0 0
                                                                                     dampingConstant 80
                                                                                   }
@@ -5529,7 +5547,7 @@ DEF TIAGO Robot {
                                                                                     }
                                                                                   ]
                                                                                   endPoint DEF LEFT_GRIPPER Solid {
-                                                                                    translation 1.183391793346993e-07 0 0
+                                                                                    translation 2.0548871939477255e-07 0 0
                                                                                     rotation 0 0 1 3.1415
                                                                                     children [
                                                                                       DEF GRIPPER_SHAPE Group {
@@ -5661,11 +5679,13 @@ DEF TIAGO Robot {
                                                                                       density -1
                                                                                       mass 0.10998
                                                                                     }
+                                                                                    linearVelocity 0.00013185328545469257 1.5696142144283848e-05 -1.527581260496077e-05
+                                                                                    angularVelocity -8.374324386260954e-05 1.3391660398570404e-05 -0.00023047171446742727
                                                                                   }
                                                                                 }
                                                                                 DEF RIGHT_GRIPPER_JOINT SliderJoint {
                                                                                   jointParameters JointParameters {
-                                                                                    position 7.665611513718121e-07
+                                                                                    position 8.537137092239997e-07
                                                                                     axis 1 0 0
                                                                                     dampingConstant 80
                                                                                   }
@@ -5681,7 +5701,7 @@ DEF TIAGO Robot {
                                                                                     }
                                                                                   ]
                                                                                   endPoint DEF RIGHT_GRIPPER Solid {
-                                                                                    translation 7.665611513718121e-07 0 0
+                                                                                    translation 8.537137092239997e-07 0 0
                                                                                     rotation 0 0 -1 0
                                                                                     children [
                                                                                       Pose {
@@ -5818,6 +5838,8 @@ DEF TIAGO Robot {
                                                                                       density -1
                                                                                       mass 0.10998
                                                                                     }
+                                                                                    linearVelocity 0.0001303564790223947 1.6908754327809893e-05 -1.4661435655072404e-05
+                                                                                    angularVelocity -8.374325226471286e-05 1.3391663301392078e-05 -0.00023047172062751604
                                                                                   }
                                                                                 }
                                                                               ]
@@ -5947,6 +5969,8 @@ DEF TIAGO Robot {
                                                                     mass 0.234
                                                                   }
                                                                   translationStep 0.001
+                                                                  linearVelocity 0.0001140969562835556 2.2323341487598235e-05 -8.438440074876838e-06
+                                                                  angularVelocity -8.374320122751954e-05 1.339174490800413e-05 -0.00023047182123560756
                                                                 }
                                                               }
                                                             ]
@@ -5965,6 +5989,8 @@ DEF TIAGO Robot {
                                                               density -1
                                                               mass 0.370063
                                                             }
+                                                            linearVelocity 0.00010466836806746394 2.5656073331012754e-05 -4.817801443867567e-06
+                                                            angularVelocity -7.325538314103033e-05 2.583864939757256e-05 -0.00021463519000596286
                                                           }
                                                         }
                                                       ]
@@ -6004,6 +6030,8 @@ DEF TIAGO Robot {
                                                         density -1
                                                         mass 1.655819
                                                       }
+                                                      linearVelocity 9.017316257551462e-05 3.164070668147586e-05 8.508091475377336e-07
+                                                      angularVelocity -7.32550319559736e-05 2.5840509360301804e-05 -0.00021463719267841462
                                                     }
                                                   }
                                                 ]
@@ -6035,6 +6063,8 @@ DEF TIAGO Robot {
                                                   density -1
                                                   mass 1.432697
                                                 }
+                                                linearVelocity 6.183290610012971e-05 4.2707502485357125e-05 1.1272083485406739e-05
+                                                angularVelocity -3.1304659356628484e-05 7.792916645388005e-05 -0.00016780899617517135
                                               }
                                             }
                                           ]
@@ -6067,6 +6097,8 @@ DEF TIAGO Robot {
                                             mass 2.343502
                                           }
                                           translationStep 0.0001
+                                          linearVelocity 5.080053405631701e-05 4.1040110161140016e-05 1.253483460438322e-05
+                                          angularVelocity -3.1305769738289085e-05 7.793314996956598e-05 -0.0001678137394397637
                                         }
                                       }
                                     ]
@@ -6098,6 +6130,8 @@ DEF TIAGO Robot {
                                       density -1
                                       mass 1.800397
                                     }
+                                    linearVelocity 5.321357373948598e-05 2.60380329844346e-05 5.399328156644477e-06
+                                    angularVelocity -1.1747836096378256e-05 0.00010037634912749371 -0.0002113285247086244
                                   }
                                 }
                               ]
@@ -6145,6 +6179,8 @@ DEF TIAGO Robot {
                                 density -1
                                 mass 1.563428
                               }
+                              linearVelocity 6.240679617185118e-05 1.1997980823049715e-05 -1.5650443548382806e-06
+                              angularVelocity -8.952870157509854e-06 9.780608870754172e-05 -0.00021140444708447873
                             }
                           }
                         ]
@@ -6272,7 +6308,7 @@ DEF TIAGO Robot {
                   }
                   DEF NECK_JOINT HingeJoint {
                     jointParameters HingeJointParameters {
-                      position -2.8210269647306235e-07
+                      position 7.621900958211946e-08
                       axis 0 0 1
                       anchor 0.182 0 0
                       dampingConstant 0.5
@@ -6292,7 +6328,7 @@ DEF TIAGO Robot {
                     ]
                     endPoint DEF NECK Solid {
                       translation 0.182 0 0
-                      rotation 0 0 -1 2.8272965492323474e-07
+                      rotation 0 0 1 7.884953353001448e-08
                       children [
                         Shape {
                           appearance PBRAppearance {
@@ -6344,7 +6380,7 @@ DEF TIAGO Robot {
                         }
                         DEF HEAD_JOINT HingeJoint {
                           jointParameters HingeJointParameters {
-                            position -1.755182003400736e-07
+                            position -1.8279828798390863e-07
                             axis 0 -1 0
                             anchor 0.005 0 0.098
                             dampingConstant 0.5
@@ -6364,7 +6400,7 @@ DEF TIAGO Robot {
                           ]
                           endPoint DEF HEAD Solid {
                             translation 0.005 0 0.098
-                            rotation 0.9999999999999923 8.775877827466996e-08 -8.775910017984941e-08 1.570799999999985
+                            rotation 0.9999999999999916 9.139880872598453e-08 -9.139914400176686e-08 1.5707999999999855
                             children [
                               DEF CAMERA Pose {
                                 translation 0.107 0.0802 0
@@ -6531,6 +6567,8 @@ DEF TIAGO Robot {
                               density -1
                               mass 0.66123
                             }
+                            linearVelocity 0.0001075527153342363 7.4838662841937416e-06 1.2787655790401852e-05
+                            angularVelocity -3.4790487066851102e-06 9.878229803893156e-05 1.4225919488217835e-06
                           }
                         }
                       ]
@@ -6561,6 +6599,8 @@ DEF TIAGO Robot {
                         density -1
                         mass 0.6222
                       }
+                      linearVelocity 9.940219820669323e-05 7.227899282881472e-06 1.0092474187098015e-05
+                      angularVelocity -3.4786209079319723e-06 9.878295058678167e-05 1.4227980913055918e-06
                     }
                   }
                 ]
@@ -6607,6 +6647,8 @@ DEF TIAGO Robot {
                   density -1
                   mass 6.93198
                 }
+                linearVelocity 7.099978352085844e-05 6.574653833616587e-06 -5.606233868472013e-06
+                angularVelocity -3.455473106194937e-06 9.878890313950256e-05 2.259142214467848e-06
               }
             }
           ]
@@ -6855,8 +6897,8 @@ DEF TIAGO Robot {
       rotationStep 0.001
     }
     DEF BUMPER TouchSensor {
-      translation 2.6398617207767927e-05 -3.689989370503355e-06 0.029212940722602387
-      rotation -0.3973005743362832 -0.4907022291888932 0.7754763541856775 6.10473894806367e-07
+      translation 2.629438156098729e-05 -3.708761322052112e-06 0.02920888924110049
+      rotation -0.39730164295202675 -0.4906969259570031 0.7754791624305374 6.104718779570016e-07
       children [
         DEF BUMPER_SHAPE Shape {
           appearance PBRAppearance {
@@ -6886,8 +6928,8 @@ DEF TIAGO Robot {
         density -1
         mass 0.25821
       }
-      linearVelocity -6.895358560868116e-05 0.0010891461058335663 -0.03362818911961689
-      angularVelocity -0.006559790855583106 -0.000259731612819049 1.6243784341299266e-05
+      linearVelocity 2.1203766540541084e-05 4.748359474488893e-06 -1.0395307405558032e-06
+      angularVelocity -3.4931909387224833e-06 9.861897899847613e-05 2.3709011067253597e-06
     }
     DEF DISTANCE_SENSOR_BACK_LEFT DistanceSensor {
       translation -0.183 0.183 0.173
@@ -6974,7 +7016,7 @@ DEF TIAGO Robot {
     }
     DEF RIGHT_WHEEL_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position 80.46494886978427
+        position 80.46493758107023
         axis 0 1 0
         anchor 0 -0.2022 0
         suspensionAxis 0 0 1
@@ -6991,7 +7033,7 @@ DEF TIAGO Robot {
       ]
       endPoint DEF RIGHT_WHEEL Solid {
         translation 0 -0.202 0
-        rotation -0.7125375545972655 0.49612922963959566 -0.49613105202735497 4.379771108503531
+        rotation -0.7125333325020826 0.49613226148295614 -0.496134083881852 4.379765507825421
         children [
           DEF BIG_WHEEL Group {
             children [
@@ -7089,11 +7131,13 @@ DEF TIAGO Robot {
           density -1
           mass 1.82362
         }
+        linearVelocity 1.332792284094183e-05 4.467595927082971e-06 -1.536101305332532e-06
+        angularVelocity -3.495577452360569e-06 9.931755277809164e-05 2.36894085226322e-06
       }
     }
     DEF LEFT_WHEEL_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position 69.58078496447426
+        position 69.5807654877117
         axis 0 1 0
         anchor 0 0.2022 0
         suspensionAxis 0 0 1
@@ -7110,7 +7154,7 @@ DEF TIAGO Robot {
       ]
       endPoint DEF LEFT_WHEEL Solid {
         translation 0 0.202 0
-        rotation -0.9480889185616758 -0.2248633263105218 0.22486415228114973 4.659103555793862
+        rotation -0.9480930766504142 -0.22485456029934664 0.22485538623777515 4.65910793531811
         children [
           Pose {
             rotation -1 0 0 3.141593
@@ -7213,11 +7257,13 @@ DEF TIAGO Robot {
           density -1
           mass 1.82362
         }
+        linearVelocity 1.4833580565729311e-05 4.472951316395436e-06 -1.4617471872243647e-07
+        angularVelocity -3.4956674950399467e-06 9.960852095419005e-05 2.3675965497228305e-06
       }
     }
     DEF CASTER_WHEEL_FRONT_RIGHT_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position 9.809010401678108
+        position 9.809907367577607
         axis 0 0 1
         anchor 0.1695 -0.102 -0.0335
         suspensionSpringConstant 250000
@@ -7225,17 +7271,17 @@ DEF TIAGO Robot {
       }
       endPoint DEF CASTER_WHEEL_FRONT_RIGHT Solid {
         translation 0.1695 -0.102 -0.0335
-        rotation 0 0 -1 2.7573602126810646
+        rotation 0 0 -0.9999999999999999 2.7564632467815664
         children [
           DEF SMALL_WHEEL_JOINT HingeJoint {
             jointParameters HingeJointParameters {
-              position 336.61449831053585
+              position 336.6182877186196
               axis 0 1 0
               anchor -0.016 0 -0.04
             }
             endPoint DEF SMALL_WHEEL Solid {
               translation -0.016 0 -0.04
-              rotation -0.16480389853815763 -0.6974367718965578 -0.6974393337295607 2.814922414866777
+              rotation -0.16616137004865525 -0.6972757084949232 -0.6972782697363059 2.8122798470534462
               children [
                 DEF SMALL_WHEEL_SHAPE Shape {
                   appearance PBRAppearance {
@@ -7290,6 +7336,8 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
+              linearVelocity 6.705003043620462e-06 4.487636991272418e-06 1.4419574471195349e-05
+              angularVelocity -8.859271022985599e-05 0.00030530778550649773 -4.475484559461982e-05
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -7334,11 +7382,13 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
+        linearVelocity 8.665122706545614e-06 4.0110548284885945e-06 1.345423495787466e-05
+        angularVelocity -4.736026138400919e-06 9.839027128479875e-05 -4.595404373935882e-05
       }
     }
     DEF CASTER_WHEEL_FRONT_LEFT_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position 2.685678093562977
+        position 2.6984685190743107
         axis 0 0 1
         anchor 0.1695 0.102 -0.0335
         suspensionSpringConstant 250000
@@ -7346,17 +7396,17 @@ DEF TIAGO Robot {
       }
       endPoint DEF CASTER_WHEEL_FRONT_LEFT Solid {
         translation 0.1695 0.102 -0.0335
-        rotation 0 0 0.9999999999999999 2.685678093562977
+        rotation 0 0 1 2.6984685190743107
         children [
           DEF SMALL_WHEEL_JOINT HingeJoint {
             jointParameters HingeJointParameters {
-              position 350.5503753397345
+              position 350.5516676880743
               axis 0 1 0
               anchor -0.016 0 -0.04
             }
             endPoint DEF SMALL_WHEEL Solid {
               translation -0.016 0 -0.04
-              rotation -0.6780396508890023 -0.5197404387424273 -0.5197423478591572 1.9499261968430879
+              rotation -0.6785298547791978 -0.5194204723160263 -0.5194223802574518 1.9492547178633925
               children [
                 DEF SMALL_WHEEL_SHAPE Shape {
                   appearance PBRAppearance {
@@ -7411,6 +7461,8 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
+              linearVelocity 3.1528742230430705e-06 -5.4373638219725e-06 1.5822687242172803e-05
+              angularVelocity 6.374666884889369e-05 0.00020955950695527678 0.0006216340600762856
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -7455,11 +7507,13 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
+        linearVelocity 8.438433002097602e-06 2.081790106288503e-06 1.4832335261040673e-05
+        angularVelocity 1.2479625808347875e-05 0.00010149530349095817 0.0006234562691641691
       }
     }
     DEF CASTER_WHEEL_BACK_RIGHT_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -16.15754244396262
+        position -16.138928959449164
         axis 0 0 1
         anchor -0.1735 -0.102 -0.0335
         suspensionSpringConstant 250000
@@ -7467,17 +7521,17 @@ DEF TIAGO Robot {
       }
       endPoint DEF CASTER_WHEEL_BACK_RIGHT Solid {
         translation -0.1735 -0.102 -0.0335
-        rotation 0 0 -1 3.591171829603446
+        rotation 0 0 -0.9999999999999999 3.5725583450899907
         children [
           DEF SMALL_WHEEL_JOINT HingeJoint {
             jointParameters HingeJointParameters {
-              position 400.4320508671912
+              position 400.4341837162535
               axis 0 1 0
               anchor -0.016 0 -0.04
             }
             endPoint DEF SMALL_WHEEL_JOINT Solid {
               translation -0.016 0 -0.04
-              rotation -0.5308081877626161 -0.5992662302981655 -0.5992684315299728 2.1656170528235887
+              rotation -0.5316273547204475 -0.5989030475198615 -0.5989052474176214 2.1643392955699188
               children [
                 DEF SMALL_WHEEL_SHAPE Shape {
                   appearance PBRAppearance {
@@ -7532,6 +7586,8 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
+              linearVelocity -1.0706237385982004e-06 -1.1124953958887628e-05 -1.4699263893360636e-05
+              angularVelocity 4.917658778972228e-05 0.00015713426655829108 0.0010930160064124995
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -7576,11 +7632,13 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
+        linearVelocity 6.587271014426275e-06 1.788237052069365e-06 -1.639681816760909e-05
+        angularVelocity 2.4603365302393384e-05 0.00010367809209293658 0.0010938947415973057
       }
     }
     DEF CASTER_WHEEL_BACK_LEFT_JOINT HingeJoint {
       jointParameters HingeJointParameters {
-        position -15.36874650816436
+        position -15.372016932112793
         axis 0 0 1
         anchor -0.1735 0.102 -0.0335
         suspensionSpringConstant 250000
@@ -7588,17 +7646,17 @@ DEF TIAGO Robot {
       }
       endPoint DEF CASTER_WHEEL_BACK_LEFT Solid {
         translation -0.1735 0.102 -0.0335
-        rotation 0 0 -0.9999999999999999 2.8023758938051873
+        rotation 0 0 -1 2.8056463177536197
         children [
           DEF SMALL_WHEEL_JOINT HingeJoint {
             jointParameters HingeJointParameters {
-              position 400.2439413874065
+              position 400.24858295385656
               axis 0 1 0
               anchor -0.016 0 -0.04
             }
             endPoint DEF SMALL_WHEEL Solid {
               translation -0.016 0 -0.04
-              rotation -0.45888223676282897 -0.628261169043546 -0.6282634767799093 2.281163842450884
+              rotation -0.46064760120876824 -0.6276148873854586 -0.6276171927478927 2.2782492250715736
               children [
                 DEF SMALL_WHEEL_SHAPE Shape {
                   appearance PBRAppearance {
@@ -7653,6 +7711,8 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
+              linearVelocity 6.498161440010531e-06 5.462324401337504e-06 -1.3423506962077017e-05
+              angularVelocity -7.840280779562402e-05 0.0003090503608412932 -4.9792503616623285e-05
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -7697,6 +7757,8 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
+        linearVelocity 8.46651340725261e-06 4.87492547913588e-06 -1.4965812860994411e-05
+        angularVelocity -4.8589335464504095e-06 9.83782362516466e-05 -5.0709645644572154e-05
       }
     }
   ]
@@ -7738,6 +7800,6 @@ DEF TIAGO Robot {
   }
   controller "<extern>"
   supervisor TRUE
-  linearVelocity -9.325764483491174e-05 0.001703372020896423 -0.03359830697218939
-  angularVelocity -0.006559800978409272 -0.00025973201220475266 1.6243575545605736e-05
+  linearVelocity 3.0434992757670938e-05 5.112535561447972e-06 -2.6076175290465756e-06
+  angularVelocity -3.4931373533100123e-06 9.861904758574523e-05 2.370891576743632e-06
 }

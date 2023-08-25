@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.append('/home/gerardo/software/webots/lib/controller/python')
+sys.path.append('/usr/local/webots/lib/controller/python')
 from controller import Supervisor, Robot
 
 import rospy
@@ -9,23 +9,22 @@ from geometry_msgs.msg import *
 from nav_msgs.msg import *
 from pedsim_msgs.msg import *
 import tf
-
 import time
 import ctypes
-
 import numpy as np
 import math
 import argparse
 
 class Person (Supervisor):
     def __init__(self, person_number):
-
+        parent = os.path.dirname(os.path.realpath(__file__))
+        main_directory = os.path.abspath(os.path.join(parent, os.pardir))
         Robot.__init__(self)
         self.person_number = person_number
         self.timeStep = int(self.getBasicTimeStep())   
-        self.controller_functions = ctypes.CDLL('/home/gerardo/software/webots/lib/controller/libController.so', mode=ctypes.RTLD_GLOBAL)  
-        self.bvh_functions = ctypes.CDLL('/home/gerardo/ros_projects/cohan_ws/src/CoHAN_Navigation/simulators/webots_ros/libraries/bvh_util/libbvh_util.so', mode=ctypes.RTLD_GLOBAL)  
-        self.bvh_animation_functions = ctypes.CDLL('/home/gerardo/ros_projects/cohan_ws/src/CoHAN_Navigation/simulators/webots_ros/controllers/bvh_animation_mod/bvh_animation_mod.so')  
+        self.controller_functions = ctypes.CDLL('/usr/local/webots/lib/controller/libController.so', mode=ctypes.RTLD_GLOBAL)  
+        self.bvh_functions = ctypes.CDLL(main_directory + '/libraries/bvh_util/libbvh_util.so', mode=ctypes.RTLD_GLOBAL)  
+        self.bvh_animation_functions = ctypes.CDLL(main_directory + '/controllers/bvh_animation_mod/bvh_animation_mod.so')  
         self.bvh_animation_functions.load_motion_data(person_number)
 
         self.moving = False
@@ -36,20 +35,20 @@ class Person (Supervisor):
 
         self.pose_subscriber = rospy.Subscriber("/pedsim_visualizer/tracked_persons", TrackedPersons, self.set_pose)
         # self.speed_subscriber = rospy.Subscriber("/human1/cmd_vel", Twist, self.set_speed)
-        # if person_number == 1:
-        #     self.speed_subscriber = rospy.Subscriber("joy", Joy, self.set_speed)
+        if person_number == 1:
+            self.speed_subscriber = rospy.Subscriber("joy", Joy, self.set_speed)
         
     def set_speed(self, data):
-
+        print("SPEED")
         ########## In case the receibed speed is in the person frame ##########
         person_orientation = person.person_node.getOrientation()
         orientation = math.atan2(person_orientation[0], person_orientation[1]) - math.pi/2 
         rotation_matrix = np.array([[math.cos(orientation), -math.sin(orientation)],[math.sin(orientation), math.cos(orientation)]])
         lin_speed = np.array([data.axes[1] * 2, 0])
-        if data.axes[1] > 0.1 or data.axes[1] < -0.1:
-            self.moving = True
-        else:
-            self.moving = False
+        # if data.axes[1] > 0.1 or data.axes[1] < -0.1:
+        #     self.moving = True
+        # else:
+        #     self.moving = False
         converted_speed = np.matmul(rotation_matrix, lin_speed)
         self.person_node.setVelocity([converted_speed[0], converted_speed[1], 0, 0, 0, data.axes[0] * math.pi/2])
 
@@ -95,10 +94,9 @@ if __name__ == '__main__':
         print("Person number required")
         exit()
 
-   
     rospy.init_node("person_node_"+str(person_number))
     rospy.loginfo("person_node_"+str(person_number) +" node has been started")
-    rate = rospy.Rate(29.9) 
+    rate = rospy.Rate(30) 
     person.bvh_animation_functions.motion_step()
     person.bvh_animation_functions.motion_step()
     while not rospy.is_shutdown(): 
@@ -106,7 +104,7 @@ if __name__ == '__main__':
             # person.bvh_animation_functions.cleanup()
             # if person.moving:
             # if person_number == 1:
-            # person.bvh_animation_functions.motion_step()
+            person.bvh_animation_functions.motion_step()
             try:
                 rate.sleep()
             except KeyboardInterrupt:

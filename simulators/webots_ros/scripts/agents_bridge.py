@@ -52,13 +52,13 @@ class StageAgents(object):
                 continue
             agent_segment = TrackedSegment()
             agent_segment.type = self.Segment_Type
-            agent_segment.pose.pose = agent.pose
+            agent_segment.pose.pose = agent.pose.pose
             # print(agent.id)
             # print(agent_segment.pose.pose)
             agent_segment.twist.twist = agent.speed
 
-            # speed_modulus = math.sqrt(agent.speed.linear.x ** 2 + agent.speed.linear.y ** 2)
-            # print("SPEED eee", speed_modulus)
+            speed_modulus = math.sqrt(agent.speed.linear.x ** 2 + agent.speed.linear.y ** 2)
+            print("SPEED", agent.id, speed_modulus)
                 
             tracked_agent = TrackedAgent()
             tracked_agent.type = AgentType.HUMAN
@@ -66,9 +66,9 @@ class StageAgents(object):
             tracked_agent.track_id = agent.id
             tracked_agent.segments.append(agent_segment)
             tracked_agents.agents.append(tracked_agent)
-        if(tracked_agents.agents):
-            self.agents = tracked_agents
-            self.sig_1 = True
+        # if tracked_agents.agents:
+        self.agents = tracked_agents
+        self.sig_1 = True
 
     def RobotCB(self, msg):
         agent_segment = TrackedSegment()
@@ -91,6 +91,7 @@ class StageAgents(object):
             # self.agents.agents.append(self.robot)
             # for agent_id in range(0, len(self.agents.agents)):
             #     self.agents.agents[agent_id].track_id = agent_id+1
+            # print("AGENTS SIZE:", len(self.agents.agents))
             self.tracked_agents_pub.publish(self.agents)
             # if self.num_hum >= 2:
             self.sig_1 = False
