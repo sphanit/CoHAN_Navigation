@@ -259,7 +259,7 @@ int end_frame_index = 0;
 int root_bone_index = -1;
 char **joint_name_list;
 
-void load_motion_data(int person_id)
+void load_motion_data(int person_id, string file_path)
 {
   char *skin_device_name = NULL;
   char *motion_file_path = NULL;

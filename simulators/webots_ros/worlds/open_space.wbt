@@ -30,7 +30,7 @@ DEF Human1 Robot {
     }
   ]
   name "Human1"
-  controller "<extern>"
+  controller "<none>"
   supervisor TRUE
 }
 DEF Human2 Robot {
@@ -44,7 +44,7 @@ DEF Human2 Robot {
     }
   ]
   name "Human2"
-  controller "<extern>"
+  controller "<none>"
   supervisor TRUE
 }
 DEF Human3 Robot {
@@ -58,7 +58,7 @@ DEF Human3 Robot {
     }
   ]
   name "Human3"
-  controller "<extern>"
+  controller "<none>"
   supervisor TRUE
 }
 DEF Human4 Robot {
@@ -72,7 +72,7 @@ DEF Human4 Robot {
     }
   ]
   name "Human4"
-  controller "<extern>"
+  controller "<none>"
   supervisor TRUE
 }
 DEF Human5 Robot {
@@ -86,7 +86,7 @@ DEF Human5 Robot {
     }
   ]
   name "Human5"
-  controller "<extern>"
+  controller "<none>"
   supervisor TRUE
 }
 CadShape {
@@ -616,8 +616,6 @@ DEF TIAGO Robot {
                               density -1
                               mass 0.66123
                             }
-                            linearVelocity -2.8488058686662374e-06 -9.24985167238998e-08 5.253544293694953e-07
-                            angularVelocity 2.147626464097477e-08 -1.3089204910178294e-06 -2.6630646571134846e-06
                           }
                         }
                       ]
@@ -648,8 +646,6 @@ DEF TIAGO Robot {
                         density -1
                         mass 0.6222
                       }
-                      linearVelocity -2.7417917407414078e-06 -1.4291351022658594e-08 4.955444234518523e-07
-                      angularVelocity 2.1483025665424285e-08 -1.3035928894085753e-06 -2.6630448488616542e-06
                     }
                   }
                 ]
@@ -696,8 +692,6 @@ DEF TIAGO Robot {
                   density -1
                   mass 6.93198
                 }
-                linearVelocity -2.4030843339434483e-06 1.00936862348942e-06 2.848731033632742e-07
-                angularVelocity 4.825749169261597e-08 -1.2971998585590671e-06 -5.8833804933305645e-06
               }
             }
           ]
@@ -1180,8 +1174,6 @@ DEF TIAGO Robot {
           density -1
           mass 1.82362
         }
-        linearVelocity -2.7426493702795174e-06 8.337345864040773e-07 4.1861300736342776e-07
-        angularVelocity 5.7067955620076684e-08 -1.8056373297133315e-06 -5.8846273769094285e-06
       }
     }
     DEF LEFT_WHEEL_JOINT HingeJoint {
@@ -1306,8 +1298,6 @@ DEF TIAGO Robot {
           density -1
           mass 1.82362
         }
-        linearVelocity -4.7132791738310934e-07 7.006119508501382e-07 4.376995478075084e-07
-        angularVelocity 4.394640244411922e-08 -1.3667043402360457e-06 -5.883686723556658e-06
       }
     }
     DEF CASTER_WHEEL_FRONT_RIGHT_JOINT HingeJoint {
@@ -1385,8 +1375,6 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
-              linearVelocity -1.830909612174896e-06 -1.0008644837857067e-06 6.692214662039477e-07
-              angularVelocity 3.115085347350218e-05 -7.690584906192218e-05 -5.1254240806417674e-05
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -1431,8 +1419,6 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
-        linearVelocity -2.1035388067984503e-06 -3.868677493960421e-07 5.591284622533938e-07
-        angularVelocity 4.2729810872160387e-07 -1.2053699208260272e-06 -5.1348602418043086e-05
       }
     }
     DEF CASTER_WHEEL_FRONT_LEFT_JOINT HingeJoint {
@@ -1510,8 +1496,6 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
-              linearVelocity -7.517090702169963e-07 9.676487679983133e-07 6.817862713838363e-07
-              angularVelocity -5.880483215442841e-06 -3.535302427910831e-05 8.758596007097942e-05
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -1556,8 +1540,6 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
-        linearVelocity -9.334746521733738e-07 -7.409400078226877e-08 5.678662353137575e-07
-        angularVelocity -7.34608893901417e-07 -1.5002289498737271e-06 8.769942830090744e-05
       }
     }
     DEF CASTER_WHEEL_BACK_RIGHT_JOINT HingeJoint {
@@ -1635,8 +1617,6 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
-              linearVelocity 1.7970636955331025e-06 -8.928104548642281e-07 2.717261253794372e-07
-              angularVelocity -7.015512247448825e-06 5.780824089281518e-06 -0.00030128259841078847
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -1681,8 +1661,6 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
-        linearVelocity -1.437766375008262e-06 1.2833217104879435e-06 1.3819423920316802e-07
-        angularVelocity 2.504770012640997e-06 -6.722342541889038e-07 -0.00030121661023147905
       }
     }
     DEF CASTER_WHEEL_BACK_LEFT_JOINT HingeJoint {
@@ -1760,8 +1738,6 @@ DEF TIAGO Robot {
                 density -1
                 mass 0.088558
               }
-              linearVelocity 1.492499405454554e-06 -6.191807283815043e-07 2.708270188277201e-07
-              angularVelocity -1.613702824131967e-05 1.6814719232528137e-05 -0.00021621128387583035
             }
           }
           DEF CASTER_SUPPORT Shape {
@@ -1806,8 +1782,6 @@ DEF TIAGO Robot {
           density -1
           mass 0.051448
         }
-        linearVelocity -5.132166616475505e-07 1.3334633078316978e-06 1.4473038383144692e-07
-        angularVelocity 1.7974085462429953e-06 -8.540158287555949e-07 -0.00021609940568163873
       }
     }
   ]

@@ -13,7 +13,7 @@ import message_filters
 import math
 
 
-class StageAgents(object):
+class WebotsAgents(object):
 
     def __init__(self):
         self.tracked_agents_pub = []
@@ -40,9 +40,9 @@ class StageAgents(object):
         self.sig_2 = True
 
         self.tracked_agents_pub = rospy.Publisher("tracked_agents", TrackedAgents, queue_size=1)
-        pose_msg = message_filters.TimeSynchronizer(agent_sub, 10)
-        pose_msg.registerCallback(self.AgentsCB)
-        rospy.Timer(rospy.Duration(0.02), self.publishAgents)
+        # pose_msg = message_filters.TimeSynchronizer(agent_sub, 10)
+        # pose_msg.registerCallback(self.AgentsCB)
+        rospy.Timer(rospy.Duration(0.033), self.publishAgents)
         rospy.spin()
 
     def AgentsCB(self,msg):
@@ -53,13 +53,8 @@ class StageAgents(object):
             agent_segment = TrackedSegment()
             agent_segment.type = self.Segment_Type
             agent_segment.pose.pose = agent.pose.pose
-            # print(agent.id)
-            # print(agent_segment.pose.pose)
-            agent_segment.twist.twist = agent.speed
-
-            speed_modulus = math.sqrt(agent.speed.linear.x ** 2 + agent.speed.linear.y ** 2)
-            print("SPEED", agent.id, speed_modulus)
-                
+            print("AGENT ID", agent.id)
+            agent_segment.twist.twist = agent.speed                
             tracked_agent = TrackedAgent()
             tracked_agent.type = AgentType.HUMAN
             tracked_agent.name = "human"+str(agent.id)
@@ -87,17 +82,9 @@ class StageAgents(object):
         if self.sig_1:
             self.agents.header.stamp = rospy.Time.now()
             self.agents.header.frame_id = "map"
-            # if(self.ns != ""):
-            # self.agents.agents.append(self.robot)
-            # for agent_id in range(0, len(self.agents.agents)):
-            #     self.agents.agents[agent_id].track_id = agent_id+1
-            # print("AGENTS SIZE:", len(self.agents.agents))
             self.tracked_agents_pub.publish(self.agents)
-            # if self.num_hum >= 2:
             self.sig_1 = False
-            # if self.ns != "":
-
 
 if __name__ == '__main__':
-    agents = StageAgents()
+    agents = WebotsAgents()
     agents.AgentsPub()

@@ -20,7 +20,7 @@ from nav_msgs.msg import *
 import tf
 
 class Tiago (Supervisor):
-    def __init__(self, enable_joystick):
+    def __init__(self, enable_joystick, people_number):
         Robot.__init__(self)
         self.enable_joystick = enable_joystick
         self.findAndEnableDevices()
@@ -33,7 +33,11 @@ class Tiago (Supervisor):
         self.tf_sender = tf.TransformBroadcaster()
 
         self.robot_node = self.getFromDef("TIAGO")
-        
+        for i in range(people_number):
+            person_node = self.getFromDef("Human"+str(i + 1))
+            controller_field = person_node.getField('controller')  
+            controller_field.setSFString("<extern>")
+
         self.thread_period = 20
         self.event = Event()
         self.vel_thread = Thread(target=self.cmd_vel_thread, args=[self.event],
@@ -200,8 +204,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--joystick', type=int)
+    parser.add_argument('--people_number', type=int)
     args, unknown = parser.parse_known_args()
     joystick = args.joystick
+    people_number = args.people_number
 
     enable_joystick = False
     if joystick:
@@ -210,9 +216,12 @@ if __name__ == '__main__':
     else:
         print("Joystick not setted")
 
+    if not people_number:
+        people_number = 0
+
     rospy.init_node("tiago_robot")
     rospy.loginfo("tiago_robot node has been started")
-    tiago_robot = Tiago(enable_joystick)
+    tiago_robot = Tiago(enable_joystick, people_number)
     rate = rospy.Rate(30)
 
     while not rospy.is_shutdown():   

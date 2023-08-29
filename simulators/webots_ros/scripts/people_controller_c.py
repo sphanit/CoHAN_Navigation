@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import os
 sys.path.append('/usr/local/webots/lib/controller/python')
@@ -32,14 +33,14 @@ class Person (Supervisor):
         self.person_node = self.getFromDef("Human"+str(person_number))
         self.traslation_field = self.person_node.getField('translation')
         self.rotation_field = self.person_node.getField('rotation')        
-
-        self.pose_subscriber = rospy.Subscriber("/pedsim_visualizer/tracked_persons", TrackedPersons, self.set_pose)
+        
+        if person_number != 1:
+            self.pose_subscriber = rospy.Subscriber("/pedsim_visualizer/tracked_persons", TrackedPersons, self.set_pose)
         # self.speed_subscriber = rospy.Subscriber("/human1/cmd_vel", Twist, self.set_speed)
         if person_number == 1:
             self.speed_subscriber = rospy.Subscriber("joy", Joy, self.set_speed)
         
     def set_speed(self, data):
-        print("SPEED")
         ########## In case the receibed speed is in the person frame ##########
         person_orientation = person.person_node.getOrientation()
         orientation = math.atan2(person_orientation[0], person_orientation[1]) - math.pi/2 
