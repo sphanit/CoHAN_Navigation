@@ -123,9 +123,9 @@ weight_acc_lim_theta: 1
 weight_agent_acc_lim_theta: 2
 weight_kinematics_nh: 100.0
 weight_kinematics_forward_drive: 1.0
-weight_kinematics_turning_radius: 0
-weight_optimaltime: 10.0
-weight_agent_optimaltime: 3.0
+weight_kinematics_turning_radius: 1.0
+weight_optimaltime: 1.0
+weight_agent_optimaltime: 2.0
 weight_obstacle: 50.0
 weight_dynamic_obstacle: 50
 weight_viapoint: 0.05
