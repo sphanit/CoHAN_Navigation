@@ -5,7 +5,7 @@ planning_mode: 1
 
 # Trajectory
 teb_autosize: True
-dt_ref: 0.125
+dt_ref: 0.25
 dt_hysteresis: 0.0125
 global_plan_overwrite_orientation: True
 allow_init_with_backwards_motion: False
@@ -20,7 +20,7 @@ holonomic_robot: False
 type: 0 #(0: Robot, 1: Human)
 max_vel_y: 0.0
 acc_lim_y: 0.5
-max_vel_x: 0.7
+max_vel_x: 1.0
 min_vel_x: 0.2
 max_vel_x_backwards: 0.2
 max_vel_theta: 0.4
@@ -82,7 +82,7 @@ yaw_goal_tolerance: 0.1
 free_goal_vel: False
 
 # Obstacles
-min_obstacle_dist: 0.2
+min_obstacle_dist: 0.5
 include_costmap_obstacles: True
 costmap_obstacles_behind_robot_dist: 0.5
 obstacle_poses_affected: 1

@@ -34,10 +34,10 @@
     <arg name="num_agents" value="$(arg num_agents)"/>
   </include>
 
-<include file="$(find visual_perception_tracking)/launch/visual_perception.launch"></include>
+<!-- <include file="$(find visual_perception_tracking)/launch/visual_perception.launch"></include> -->
 
-<include file="$(find pedsim_simulator)/launch/simple_pedestrians.launch"></include>
+<!-- <include file="$(find pedsim_simulator)/launch/simple_pedestrians.launch"></include> -->
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_stage.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_stage.rviz" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
 </launch>
