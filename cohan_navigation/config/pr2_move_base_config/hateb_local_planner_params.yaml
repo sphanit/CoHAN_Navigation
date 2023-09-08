@@ -20,7 +20,7 @@ holonomic_robot: true
 is_real: true
 max_vel_y: 0.7
 acc_lim_y: 0.3
-max_vel_x: 0.7
+max_vel_x: 1
 min_vel_x: 0.02
 max_vel_x_backwards: 0.4
 max_vel_theta: 1.2
@@ -51,8 +51,8 @@ max_agent_vel_theta: 1.1
 agent_acc_lim_x: 0.6
 agent_acc_lim_y: 0.3
 agent_acc_lim_theta: 0.8
-use_external_prediction: True
-predict_agent_behind_robot: True
+use_external_prediction: False
+predict_agent_behind_robot: False
 predict_agent_goal: False
 agent_robot_ttc_scale_alpha: 1.0
 agent_robot_ttcplus_scale_alpha: 1.0
@@ -71,9 +71,9 @@ ttc_threshold: 5.0
 ttclosest_threshold: 1.0
 ttcplus_threshold: 5.0
 ttcplus_timer: 1.0
-rel_vel_cost_threshold: 1.5
+rel_vel_cost_threshold: 2
 visibility_cost_threshold: 2.5
-invisible_human_threshold: 0.8
+invisible_human_threshold: 1.2
 min_agent_robot_dist: 0.6
 
 # GoalTolerance
@@ -121,8 +121,8 @@ weight_agent_acc_lim_x: 2
 weight_agent_acc_lim_y: 2
 weight_acc_lim_theta: 1
 weight_agent_acc_lim_theta: 2
-weight_kinematics_nh: 1.0
-weight_kinematics_forward_drive: 1.0
+weight_kinematics_nh: 50
+weight_kinematics_forward_drive: 10 
 weight_kinematics_turning_radius: 0
 weight_optimaltime: 1.0
 weight_agent_optimaltime: 3.0

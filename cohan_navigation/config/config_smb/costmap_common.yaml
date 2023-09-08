@@ -1,0 +1,29 @@
+origin_z: 0.0
+obstacle_range: 50
+raytrace_range: 3.0
+
+transform_tolerance: 0.5
+meter_scoring: true
+
+footprint_padding: 0.0
+
+static_layer:
+  map_topic: map
+  subscribe_to_updates: false
+  static_map: true
+
+inflater:
+  inflation_radius: 0.2
+
+obstacle_layer:
+  enabled:              true
+  combination_method: 1
+  observation_sources: base_scan
+  base_scan: 
+      data_type: LaserScan
+      topic: /base_scan
+      sensor_frame: base_laser_link
+      expected_update_rate: 0.3
+      marking: true 
+      clearing: true
+      footprint_clearing_enabled: true
