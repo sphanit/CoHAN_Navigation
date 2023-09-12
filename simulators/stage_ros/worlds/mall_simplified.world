@@ -37,6 +37,17 @@ define pr2 position
     )
 )
 
+define human position
+(
+  bitmap "images/human_base.png"
+  size [0.60 0.60 0.25]
+  origin [0.0 0 0 0]
+  gui_nose 1
+  localization "gps"
+  drive "omni"
+  lidar(pose [ 0.275 0.000 -0.150 0.000 ])
+)
+
 define floorplan model
 (
   # sombre, sensible, artistic
@@ -78,3 +89,5 @@ floorplan
 
 # throw in a robot
 pr2( pose [ 2.0 2.0 0 0 ] name "pr2" color "gray")
+human( pose [ 3.0 1.0 0 0 ] name "human1" color "blue")
+human( pose [ 7.5 5.0 0 90.0 ] name "human2" color "green")

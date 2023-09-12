@@ -12,7 +12,6 @@ from cohan_msgs.msg import TrackedAgents, TrackedAgent, AgentMarkerStamped, Trac
 from geometry_msgs.msg import PointStamped, TwistStamped
 import message_filters
 
-
 class MorseAgents(object):
 
     def __init__(self, num_hum, ns_):
