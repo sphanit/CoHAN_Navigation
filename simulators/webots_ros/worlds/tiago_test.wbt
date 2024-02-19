@@ -1,0 +1,55 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/humans/skin_animated_humans/protos/CharacterSkin.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.38743537545411955 -0.4089497738332364 -0.8262287288205792 4.679821799573202
+  position -0.340814382513871 1.9603669431519988 10.263031238608347
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  luminosity 2
+}
+RectangleArena {
+  translation 6.59 7.83 0
+  floorSize 15 42
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 9 2 3
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 7 20 3
+}
+DEF Human1 Robot {
+  translation 3.23136 16.2067 -7.10543e-15
+  rotation 0 0 1 3.14159
+  children [
+    CharacterSkin {
+      scale 0.8 0.8 0.8
+      name "skin1"
+      model "Robert"
+    }
+  ]
+  name "Human1"
+  controller "bvh_animation_mod"
+  supervisor TRUE
+}
+CadShape {
+  url [
+    "../maps/laas_adream.dae"
+  ]
+}

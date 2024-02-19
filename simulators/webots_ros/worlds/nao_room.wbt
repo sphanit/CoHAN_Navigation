@@ -1,0 +1,271 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/lights/protos/CeilingLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/protos/NaoRoom.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/cabinet/protos/Cabinet.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/PaintedWood.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/protos/VisualArmature.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/protos/Key.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/protos/KeyPot.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/school_furniture/protos/Book.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/plants/protos/BunchOfSunFlowers.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/chairs/protos/Chair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/living_room_furniture/protos/Sofa.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/chairs/protos/WoodenChair.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/protos/Nao.proto"
+
+WorldInfo {
+  info [
+    "An Aldebaran's Nao H25 V5.0 robot in a living room"
+    "NAO is a programmable, 57-cm tall humanoid robot."
+    "The body has 25 degrees of freedom (DOF)."
+    "The sensors include 2 cameras, 4 microphones, sonar rangefinder, 2 IR emitters and receivers, 1 inertial board, and 8 pressure sensors."
+  ]
+  title "NAO room"
+  basicTimeStep 10
+  contactProperties [
+    ContactProperties {
+      material1 "key"
+      material2 "keyhole"
+      coulombFriction [
+        0.2
+      ]
+    }
+    ContactProperties {
+      material1 "NAO foot material"
+      coulombFriction [
+        7
+      ]
+      bounce 0.3
+      bounceVelocity 0.003
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.12003397117585744 0.03522026573151634 0.9921448375340944 2.575046275756999
+  position 2.2110584056853018 -1.798351998275922 1.1018607429444633
+}
+Background {
+  backUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_side.png"
+  ]
+  bottomUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_bottom.png"
+  ]
+  frontUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_side.png"
+  ]
+  leftUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_side.png"
+  ]
+  rightUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_side.png"
+  ]
+  topUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/cubic/brown_floor_top.png"
+  ]
+}
+CeilingLight {
+  translation 0 0 2
+  pointLightIntensity 2
+  pointLightCastShadows TRUE
+}
+NaoRoom {
+}
+Cabinet {
+  hidden translation_7 -2.88302838143996e-15 0 0
+  hidden rotation_7 0 0 1 0
+  hidden translation_11 -1.5320746534386281e-15 0 0
+  hidden rotation_11 0 0 1 0
+  hidden translation_15 0 0 0
+  hidden translation_23 0 0 0
+  hidden translation_31 0 0 0
+  hidden translation_39 0 0 0
+  translation -0.2 1.99 0
+  rotation 0 0 1 -1.5707953071795862
+  primaryAppearance PaintedWood {
+    colorOverride 0.666667 0.333333 0
+  }
+  secondaryAppearance PaintedWood {
+    colorOverride 0.619608 0.615686 0.560784
+  }
+}
+DEF PAINTING_BIG VisualArmature {
+  translation -2 -0.6 1.3
+  dimension 0.02 0.6 0.4
+  textureUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/nao_poster_5.jpg"
+  ]
+}
+DEF PAINTING_TOP VisualArmature {
+  translation -0.4 -2 1.3
+  rotation 0 0 1 1.5708
+  dimension 0.02 0.6 0.4
+  textureUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/nao_poster_1.jpg"
+  ]
+}
+DEF PAINTING_MIDDLE VisualArmature {
+  translation 0.4 -2 1.3
+  rotation 0 0 1 1.5708
+  dimension 0.02 0.6 0.4
+  textureUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/nao_poster_3.jpg"
+  ]
+}
+DEF PAINTING_VERTICAL VisualArmature {
+  translation 0.7 2 1.2
+  rotation 0 0 1 -1.5708
+  dimension 0.02 0.675 0.9
+  textureUrl [
+    "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/softbank/nao/worlds/textures/nao_poster_2.jpg"
+  ]
+}
+Key {
+  translation -0.3753771484628656 1.56 0.2899896388314296
+  rotation 3.278951947352161e-15 1 3.464672787486027e-15 1.5307692051840778
+  contactMaterial "key"
+}
+KeyPot {
+  translation 0.12 0.2 0.3
+}
+Book {
+  translation -0.1899978984981025 -0.16992001456412748 0.30996321249999437
+  rotation 0.6215269003889171 0.47687380320776857 0.6215269003889564 -2.2516404915576986
+  name "book(1)"
+}
+BunchOfSunFlowers {
+  translation -1.50435 -1.39292 0
+  name "bunch of sunflowers(1)"
+}
+BunchOfSunFlowers {
+  translation -1.02404 1.70659 0
+  rotation 0 0 1 -1.3118
+}
+Table {
+  rotation 0 0 1 1.5708
+  size 0.6 0.8 0.3
+}
+Chair {
+  translation -1.69 0 0
+  color 0.25098 0.756863 0.368627
+}
+Sofa {
+  translation 0 -1.44 0
+  rotation 0 0 1 1.5708
+}
+WoodenChair {
+  translation 1.70118 0.259722 0
+  rotation 0 0 1 -2.8798
+}
+Nao {
+  hidden position_0_0 3.2006137408175453e-15
+  hidden position2_0_0 -6.958391934484484e-09
+  hidden position_0_1 1.4000001039972716
+  hidden position2_0_1 3.307226258917017e-08
+  hidden position_0_2 1.4979700510387481
+  hidden position2_0_2 -3.3475013836025934e-08
+  hidden position_0_3 -8.430341491560966e-08
+  hidden position_0_4 -8.464430489851793e-08
+  hidden translation_11 0 0 0.1265
+  hidden rotation_11 0 1 0 0
+  hidden translation_18 0 -0.098 0.1
+  hidden rotation_18 1.653613129458508e-08 0.9999999999999997 1.9632384742609842e-08 1.400000103997272
+  hidden position_18_0 1.7221836139957472e-08
+  hidden translation_19 0.105 -0.015 0
+  hidden rotation_19 1 0 0 0
+  hidden position_19_0 -1.8825583691551595e-08
+  hidden translation_20 0 0 0
+  hidden rotation_20 0 0 1 0
+  hidden position_20_0 8.014709889635498e-09
+  hidden translation_21 0.05595 0 0
+  hidden rotation_21 1 0 0 0
+  hidden position_21_0 1.496919255217795e-10
+  hidden position_21_1 1.4967949102385006e-10
+  hidden position_21_2 2.8605873763088957e-11
+  hidden translation_22 0.069 -0.013 -0.005
+  hidden position_22_0 7.176592653491006e-11
+  hidden translation_23 0.014 0 0
+  hidden position_23_0 8.145484287148185e-12
+  hidden translation_24 0.014 0 0
+  hidden translation_25 0.069 0.013 -0.005
+  hidden position_25_0 7.176159666506842e-11
+  hidden translation_26 0.014 0 0
+  hidden position_26_0 8.143263841033085e-12
+  hidden translation_27 0.014 0 0
+  hidden translation_28 0.049 0 -0.026
+  hidden rotation_28 0 1 0 0
+  hidden position_28_0 1.755273704162691e-11
+  hidden translation_29 0.014 0 0
+  hidden translation_30 0 0.098 0.1
+  hidden rotation_30 -1.6737506918012967e-08 0.9999999999999998 -1.800308010070851e-08 1.4979700510387484
+  hidden position_30_0 -9.016056345956258e-09
+  hidden translation_31 0.105 0.015 0
+  hidden rotation_31 1 0 0 0
+  hidden position_31_0 -9.704955061806686e-09
+  hidden translation_32 0 0 0
+  hidden rotation_32 0 0 1 0
+  hidden position_32_0 4.968094332006874e-09
+  hidden translation_33 0.05595 0 0
+  hidden rotation_33 1 0 0 0
+  hidden position_33_0 1.5370948958093537e-10
+  hidden position_33_1 1.5370704709034421e-10
+  hidden position_33_2 2.1431146068634196e-11
+  hidden translation_34 0.069 -0.013 -0.005
+  hidden position_34_0 6.858402734622007e-11
+  hidden translation_35 0.014 0 0
+  hidden position_35_0 6.3832272801515275e-12
+  hidden translation_36 0.014 0 0
+  hidden translation_37 0.069 0.013 -0.005
+  hidden position_37_0 6.859146584050577e-11
+  hidden translation_38 0.014 0 0
+  hidden position_38_0 6.383227280096512e-12
+  hidden translation_39 0.014 0 0
+  hidden translation_40 0.049 0 -0.026
+  hidden position_40_0 1.666256022048296e-11
+  hidden translation_41 0.014 0 0
+  hidden translation_42 0 -0.05 -0.085
+  hidden rotation_42 0 -0.7071067811865476 -0.7071067811865476 8.429369702178807e-08
+  hidden position_42_0 -1.568341208013635e-07
+  hidden translation_43 0 0 0
+  hidden rotation_43 -1 0 0 1.5769906706002898e-07
+  hidden position_43_0 -7.924237586308067e-08
+  hidden translation_44 0 0 0
+  hidden rotation_44 0 -1 0 7.884953353001448e-08
+  hidden position_44_0 -8.322020317308443e-08
+  hidden translation_45 0 0 -0.1
+  hidden rotation_45 0 -0.9999999999999999 0 8.429369702178807e-08
+  hidden position_45_0 -8.6853333414183e-08
+  hidden translation_46 0 0 -0.1029
+  hidden rotation_46 0 -1 0 8.429369702178807e-08
+  hidden position_46_0 -1.735592078944137e-07
+  hidden translation_47 0 0 0
+  hidden rotation_47 -1 0 0 1.7377590819732256e-07
+  hidden translation_48 0.020000012935605715 -0.006999998016891551 -0.040987370918244954
+  hidden rotation_48 1.1119366546118765e-07 -3.113593166368208e-11 0.999999999999994 -3.141585307112886
+  hidden translation_52 0 0.05 -0.085
+  hidden rotation_52 0 -0.7071067811865475 0.7071067811865475 8.429369702178807e-08
+  hidden position_52_0 1.5684909779433928e-07
+  hidden translation_53 0 0 0
+  hidden rotation_53 1 0 0 1.5769906706002898e-07
+  hidden position_53_0 7.86617806349717e-08
+  hidden translation_54 0 0 0
+  hidden rotation_54 0 1 0 7.884953353001448e-08
+  hidden position_54_0 8.306146352504017e-08
+  hidden translation_55 0 0 -0.1
+  hidden rotation_55 0 1 0 8.429369702178807e-08
+  hidden position_55_0 -8.680386986981148e-08
+  hidden translation_56 0 0 -0.1029
+  hidden rotation_56 0 -0.9999999999999999 0 8.429369702178807e-08
+  hidden position_56_0 1.735599238777237e-07
+  hidden translation_57 0 0 0
+  hidden rotation_57 1 0 0 1.7377590819732256e-07
+  hidden translation_58 0.020000013073887324 0.006999998015829734 -0.04098737089007683
+  hidden rotation_58 1.1119171843803311e-07 3.093438811873296e-11 0.999999999999994 -3.1415853072385054
+  translation -1.7460609923307793 1.0025113854049346 0.3334845592673684
+  rotation 0.0004928113040847488 -0.2796669878252024 0.9600969394065354 0.0036814984679448826
+  controller "<extern>"
+  cameraWidth 640
+  cameraHeight 480
+}
