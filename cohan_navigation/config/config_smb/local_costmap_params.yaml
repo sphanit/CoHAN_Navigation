@@ -5,7 +5,8 @@ height: 10.0
 resolution: 0.1
 origin_x: 0.0
 origin_y: 0.0
-global_frame: odom_combined
+# global_frame: odom_combined
+global_frame: odom # For sim
 robot_base_frame: base_link
 footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
 footprint_padding: 0.05
