@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/phani/ros_ws/Bremen/cohan_multi_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/phani/ros_ws/Bremen/Multiverse/multiverse/build/USD/lib/python",
+        "/home/phani/ros_ws/Bremen/Multiverse/multiverse/lib/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/phani/ros_ws/Bremen/cohan_multi_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/phani/ros_ws/Bremen/Multiverse/multiverse/build/USD/lib/python",
+        "/home/phani/ros_ws/Bremen/Multiverse/multiverse/lib/dist-packages"
+    ]
+}

@@ -20,7 +20,7 @@ define pr2 position
   origin [-0.050 0 0 0]
   gui_nose 1
   drive "omni"
-  lidar(pose [ 0.275 0.000 -0.150 0.000 ])
+  #lidar(pose [ 0.275 0.000 -0.150 0.000 ])
 
   block
     (

@@ -1,6 +1,7 @@
-image: apartment.png
+image: apartment.pgm
 resolution: 0.05
-origin: [-0.875, -0.875, 0.0000]
+# origin: [-0.875, -0.875, 0.0000]
+origin: [-10.5, -8.5, 0.0000]
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.196
