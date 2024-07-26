@@ -10,7 +10,7 @@
   <!-- Without namespace -->
   <group if="$(eval ''==arg('ns'))">
     <!-- Stage agents to /tracked_agents -->
-    <node name="agents" pkg="stage_ros" type="agents_bridge.py" args="$(arg num_agents)" output="screen"/>
+    <node name="agents" pkg="cohan_navigation" type="agents_bridge.py" args="$(arg num_agents)" output="screen"/>
 
     <!-- agent pose prediction, for the local-planning -->
     <node pkg="agent_path_prediction" type="agent_path_prediction" name="agent_path_predict" output="screen" >
@@ -21,7 +21,7 @@
       <param name="velscale_mul" value="2.0"/>
     </node>
 
-    <node pkg="agent_path_prediction" type="predict_goal.py" name="agent_goal_predict" output="screen"/>
+    <!-- <node pkg="agent_path_prediction" type="predict_goal.py" name="agent_goal_predict" output="screen"/> -->
 
     <!-- Filter the agents from laser scan -->
     <!-- <include file="$(find cohan_layers)/launch/agent_filter.launch">
@@ -33,7 +33,7 @@
   <!-- With namespace -->
   <group unless="$(eval ''==arg('ns'))">
     <!-- Stage agents to /tracked_agents -->
-    <node name="agents" pkg="stage_ros" type="agents_bridge.py" args="$(arg num_agents) $(arg ns)" output="screen"/>
+    <node name="agents" pkg="cohan_navigation" type="agents_bridge.py" args="$(arg num_agents) $(arg ns)" output="screen"/>
 
     <!-- agent pose prediction, for the local-planning -->
     <node pkg="agent_path_prediction" type="agent_path_prediction" name="agent_path_predict" output="screen" >

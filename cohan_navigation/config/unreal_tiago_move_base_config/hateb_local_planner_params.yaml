@@ -18,26 +18,19 @@ shrink_horizon_backup: True
 # Robot
 holonomic_robot: true
 is_real: false
-max_vel_y: 0.7
-acc_lim_y: 0.3
-max_vel_x: 0.7
-min_vel_x: 0.02
-max_vel_x_backwards: 0.4
-max_vel_theta: 1.2
+max_vel_y: 0.8
+acc_lim_y: 1.0
+max_vel_x: 0.8
+min_vel_x: 0.5
+max_vel_x_backwards: 0.8
+max_vel_theta: 2.0
 min_vel_theta: 0.1
-acc_lim_x: 0.3
-acc_lim_theta: 0.4
+acc_lim_x: 1.0
+acc_lim_theta: 2.0
 min_turning_radius: 0.0
 footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
   type: "circular"
-  radius: 0.34 # for type "circular"
-  line_start: [-0.3, 0.0] # for type "line"
-  line_end: [0.3, 0.0] # for type "line"
-  front_offset: 0.2 # for type "two_circles"
-  front_radius: 0.2 # for type "two_circles"
-  rear_offset: 0.2 # for type "two_circles"
-  rear_radius: 0.2 # for type "two_circles"
-  vertices: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]] # for type "polygon"
+  radius: 0.27 # for type "circular"
 
 # Agents
 agent_radius: 0.3
@@ -73,8 +66,8 @@ ttcplus_threshold: 5.0
 ttcplus_timer: 1.0
 rel_vel_cost_threshold: 1.5
 visibility_cost_threshold: 2.5
-invisible_human_threshold: 0.8
-min_agent_robot_dist: 0.6
+invisible_human_threshold: 1.5
+min_agent_robot_dist: 0.8
 
 # GoalTolerance
 xy_goal_tolerance: 0.2
@@ -82,7 +75,7 @@ yaw_goal_tolerance: 0.1
 free_goal_vel: True
 
 # Obstacles
-min_obstacle_dist: 0.3
+min_obstacle_dist: 0.2
 include_costmap_obstacles: True
 costmap_obstacles_behind_robot_dist: 0.5
 obstacle_poses_affected: 1
@@ -121,8 +114,8 @@ weight_agent_acc_lim_x: 2
 weight_agent_acc_lim_y: 2
 weight_acc_lim_theta: 1
 weight_agent_acc_lim_theta: 2
-weight_kinematics_nh: 1.0
-weight_kinematics_forward_drive: 1.0
+weight_kinematics_nh: 1000.0
+weight_kinematics_forward_drive: 100.0
 weight_kinematics_turning_radius: 0
 weight_optimaltime: 1.0
 weight_agent_optimaltime: 3.0

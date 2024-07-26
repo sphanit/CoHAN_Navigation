@@ -5,7 +5,7 @@
   <arg name="num_agents" default="2"/>
   <arg name="robot_planner" default="cohan"/>
 
-   <include file="$(find cohan_navigation)/launch/unreal_tiago_launch/include/robo_description.launch"/>
+   <!-- <include file="$(find cohan_navigation)/launch/unreal_tiago_launch/include/robo_description.launch"/> -->
 
   <include file="$(find cohan_navigation)/launch/unreal_tiago_launch/include/localization.launch">
     <arg name="localize" value="$(arg localize)"/>

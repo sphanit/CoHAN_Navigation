@@ -21,7 +21,7 @@
     <visual name="base_link_geom_visual_0_base">
       <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
       <geometry>
-        <mesh filename="file://../assets/meshes/obj/base.obj" scale="1.0 1.0 1.0"/>
+	      <mesh filename="file://../assets/meshes/stl/base_collision.stl" scale="1.0 1.0 1.0"/>
       </geometry>
     </visual>
     <collision name="base_link_geom_collision_0_base_collision">
