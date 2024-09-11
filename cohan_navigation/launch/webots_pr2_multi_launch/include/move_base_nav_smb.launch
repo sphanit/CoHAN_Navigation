@@ -1,0 +1,18 @@
+<launch>
+  <arg name="node_start_delay" default="4.0" />
+
+  <node pkg="move_base" type="move_base" name="move_base" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' ">
+		<!-- <remap from="scan" to="base_scan"/> -->
+    <!-- <remap from="cmd_vel" to="base_controller/command"/> -->
+
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+
+	<rosparam file="$(find cohan_navigation)/config/config_smb/planner.yaml" command="load"/>
+	<rosparam file="$(find cohan_navigation)/config/config_smb/costmap_common.yaml" command="load" ns="global_costmap" />
+	<rosparam file="$(find cohan_navigation)/config/config_smb/costmap_common.yaml" command="load" ns="local_costmap" />
+	<rosparam file="$(find cohan_navigation)/config/config_smb/costmap_global.yaml" command="load"/>
+	<rosparam file="$(find cohan_navigation)/config/config_smb/costmap_local.yaml" command="load"/>
+
+  </node>
+</launch>

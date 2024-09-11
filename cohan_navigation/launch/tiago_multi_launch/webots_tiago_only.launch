@@ -1,0 +1,43 @@
+<launch>
+  <arg name="map_name" default="open_space"/>
+  <arg name="localize" default="fake"/>
+  <arg name="gui" default="false"/>
+  <arg name="fast_mode" default="false"/>
+  <arg name="node_start_delay" default="4.0"/>
+  <arg name="num_agents" default="0"/>
+  <arg name="joystick" default="0"/>
+  <arg name="people_number" default="5"/>
+
+  <!-- Webots simulator and robot robot description -->
+  <!-- <group if="$(eval 'open_space'==arg('map_name'))">
+    <include file="$(find webots_ros)/launch/webots_tiago_open_space.launch">
+      <arg name="joystick" value="$(arg joystick)"/>
+      <arg name="people_number" value="$(arg people_number)"/>
+    </include>
+  </group>
+
+  <group if="$(eval 'laas_adream'==arg('map_name'))">
+    <include file="$(find webots_ros)/launch/webots_tiago_laas_adream.launch">
+      <arg name="joystick" value="$(arg joystick)"/>
+      <arg name="people_number" value="$(arg people_number)"/>
+    </include>
+  </group> -->
+
+  <!-- start map_server with open_space map -->
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/open_space.yaml" if="$(eval 'open_space'==arg('map_name'))"/>
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/laas_adream.yaml" if="$(eval 'laas_adream'==arg('map_name'))"/> -->
+
+  <include file="$(find cohan_navigation)/tiago_multi_launch/include/robot_only.launch">
+    <arg name="node_start_delay" value="$(arg node_start_delay)" />
+    <arg name="localize" value="$(arg localize)"/>
+    <arg name="num_agents" value="$(arg num_agents)"/>
+  </include>
+
+<!-- <include file="$(find visual_perception_tracking)/launch/visual_perception.launch"></include> -->
+
+<!-- <include file="$(find pedsim_simulator)/launch/simple_pedestrians.launch"></include> -->
+
+  <!-- Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_stage.rviz" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' "/>
+</launch>

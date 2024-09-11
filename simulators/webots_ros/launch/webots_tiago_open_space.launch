@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- start Webots -->
+  <arg name="no_gui" default="false" doc="Start Webots with minimal GUI"/>
+  <include file="$(find webots_ros)/launch/webots.launch">
+    <arg name="mode" value="realtime"/>
+    <arg name="no_gui" value="$(arg no_gui)"/>
+    <arg name="world" value="$(find webots_ros)/worlds/open_space.wbt"/>
+    <!-- <arg name="world" value="/home/gerardo/webots/tiago_cohan/worlds/tiago_test.wbt"/> -->
+    <!-- <arg name="world" value="$(find webots_ros)/worlds/skin_animated_humans/worlds/skin_complete.wbt"/> -->
+  </include>
+
+  <!-- <param name="/use_sim_time" value="true"/> -->
+  <arg name="joystick" default="1" doc="Use joystick in simulation"/>
+  <arg name="people_number" default="1"/>
+  <arg name="auto_close" default="false" doc="Startup mode"/>
+  <env name="LD_LIBRARY_PATH" value="$(env LD_LIBRARY_PATH):$(env WEBOTS_HOME)/lib/controller"/>
+  <env name="PYTHONPATH" value="$(env PYTHONPATH):$(env WEBOTS_HOME)/lib/controller/python38" if="$(eval '1' if env('ROS_DISTRO') == 'noetic' else '0')" />
+  <node name="tiago_ros_controller" pkg="webots_ros" type="tiago_robot_controller.py" output="screen" args="--joystick=$(arg joystick) --people_number=$(arg people_number)" required="$(arg auto_close)"/>
+  <node name="people_controller" pkg="webots_ros" type="launch_multiple_people.py" output="screen" args="--people_number=$(arg people_number)" launch-prefix="bash -c 'sleep 10; $0 $@' "  respawn="true"/>
+  <node name="joy_node" pkg="joy" type="joy_node" />
+
+
+</launch>
+

@@ -1,0 +1,107 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/humans/skin_animated_humans/protos/CharacterSkin.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/pal_robotics/tiago_lite/protos/TiagoLite.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.4091605421330577 -0.011140544688518609 0.9123943988349695 3.0411784659815924
+  position 12.554501785628414 -1.4500732646553525 9.34533886181038
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  luminosity 2
+}
+RectangleArena {
+  translation 6.59 7.83 0
+  floorSize 15 42
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+}
+DEF TIAGO TiagoLite {
+  hidden position_0_0 -2.387526443214938e-08
+  hidden position_0_1 2.431231056085928e-08
+  hidden position_0_2 3.2718859086957182e-06
+  hidden position_0_3 3.2721963890959253e-06
+  hidden position_0_4 3.4633550745687564e-06
+  hidden position_0_5 3.463644609322181e-06
+  hidden position_1_0 -8.05931693116294e-05
+  hidden translation_2 0 0 0.5999194068306883
+  hidden position_2_0 -5.35323919928337e-07
+  hidden rotation_3 0 0 -1 5.356133209351147e-07
+  hidden position_3_0 -2.669742148774255e-07
+  hidden rotation_4 0.9999999999999823 1.3348661711408745e-07 -1.334871074387112e-07 1.5708000000000177
+  hidden translation_12 -1.0651737269995465e-09 3.988297615776106e-11 0.029995947135980236
+  hidden rotation_12 0.9969484501428026 0.02320282780520513 -0.07453466669748869 7.616649077680549e-16
+  hidden rotation_16 0.9999999999999999 -1.1937588366783646e-08 1.1937632216074691e-08 1.5708
+  hidden rotation_17 0.9999999999999999 1.2156110628460036e-08 -1.215615528042964e-08 1.5708
+  hidden rotation_18 0 0 0.9999999999999999 3.2718824081326637e-06
+  hidden position_18_0 -8.207515202585114e-06
+  hidden rotation_19 -0.9999999999831592 -4.103742527330804e-06 -4.103757601246483e-06 1.570800000016841
+  hidden rotation_20 0 0 1 3.2721538548007484e-06
+  hidden position_20_0 -8.083034650496757e-06
+  hidden rotation_21 -0.9999999999836663 -4.041502479909571e-06 -4.04151732520437e-06 1.5708000000163334
+  hidden rotation_22 0 0 1 3.46335813309181e-06
+  hidden position_22_0 -7.83027384265722e-06
+  hidden rotation_23 -0.9999999999846719 -3.915122540214096e-06 -3.915136921288603e-06 1.5708000000153282
+  hidden rotation_24 0 0 1 3.463614573663269e-06
+  hidden position_24_0 -7.705793535318572e-06
+  hidden rotation_25 -0.9999999999851553 -3.852882615167079e-06 -3.852896767621156e-06 1.5708000000148445
+  translation 7.049974113468746 9.942900453299589e-07 0.09092695784388047
+  rotation -0.03742292820757459 -0.9992995154201122 -5.408788797709308e-05 0.00026300419981335017
+  name "Tiago"
+  controller "<extern>"
+  supervisor TRUE
+  cameraSlot [
+    RangeFinder {
+      rotation 0 0 1 -1.57
+      name "camera_depth"
+      fieldOfView 1.01
+      width 320
+      height 240
+      minRange 0.8
+      maxRange 3.5
+    }
+    Camera {
+      rotation 0 0 1 -1.57
+      name "camera_color"
+      fieldOfView 1.01
+      width 320
+      height 240
+    }
+  ]
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 9 2 3
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 7 20 3
+}
+DEF Human1 Robot {
+  translation 6 2 0
+  children [
+    CharacterSkin {
+      name "skin1"
+      model "Robert"
+    }
+  ]
+  name "Human1"
+  controller "<none>"
+  supervisor TRUE
+}
+CadShape {
+  url [
+    "../maps/laas_adream.dae"
+  ]
+}

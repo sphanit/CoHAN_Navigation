@@ -1,0 +1,146 @@
+#VRML_SIM R2023a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/humans/skin_animated_humans/protos/CharacterSkin.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023a/projects/robots/pal_robotics/tiago++/protos/Tiago++.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.35500366776447984 0.0857487177266193 0.930924031960722 2.659972368236704
+  position 13.718457299020514 -2.9231244653353796 9.353587309203306
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+  luminosity 2
+}
+RectangleArena {
+  translation 6.59 7.83 0
+  floorSize 15 42
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 9 2 3
+}
+PointLight {
+  attenuation 0 0 1
+  intensity 20
+  location 7 20 3
+}
+DEF Human1 Robot {
+  translation 5.05 2 0
+  children [
+    CharacterSkin {
+      name "skin1"
+      model "Robert"
+    }
+  ]
+  name "Human1"
+  controller "<none>"
+  supervisor TRUE
+}
+CadShape {
+  url [
+    "../maps/laas_adream.dae"
+  ]
+}
+DEF TIAGO Tiago++ {
+  hidden position_0_0 80.4649485274014
+  hidden position_0_1 69.58078468213479
+  hidden position_0_2 9.81041928662286
+  hidden position_0_3 2.6948654456691967
+  hidden position_0_4 -16.145537971646746
+  hidden position_0_5 -15.371394289365853
+  hidden position_1_0 -0.0004267868363711831
+  hidden translation_2 0 0 0.5995732131636289
+  hidden position_2_0 -8.46130601525923e-08
+  hidden position_3_0 -0.4302224654294779
+  hidden translation_4 0.02509088729878419 -0.19404170730055684 -0.171
+  hidden rotation_4 0 0 1 1.1405775345704514
+  hidden position_4_0 -0.7699253411724145
+  hidden rotation_5 0.8676522148042324 0.35155278849969074 -0.3515540798275588 1.712289815716891
+  hidden position_5_0 5.185019088808495e-05
+  hidden translation_6 -0.08659999999999204 -7.777528629728433e-08 -2.016345857641655e-12
+  hidden rotation_6 0.5773602474483921 0.5773303120700677 0.5773602475330372 2.0944299359803416
+  hidden position_6_0 1.5598026065720436
+  hidden rotation_7 -0.9999697698293448 0.005499561305167024 0.005496749302809941 1.5708294006003678
+  hidden position_7_0 1.4099633423349518
+  hidden rotation_8 0.605899902848903 -0.5155263041252874 0.6059025808515851 4.093580347424774
+  hidden position_8_0 0.16182012843545418
+  hidden rotation_9 -0.6395339539097782 0.5435975610337216 0.543597289760274 2.003632405877544
+  hidden position_9_0 9.02667457184667e-06
+  hidden rotation_10 -0.5773520063562946 -0.5773467948258726 0.5773520063710293 2.0944052115608165
+  hidden position_12_0 -1.398616684472784e-07
+  hidden position_12_1 1.4035194003869308e-06
+  hidden translation_33 1.398616684472784e-07 0 0
+  hidden translation_34 1.4035194003869308e-06 0 0
+  hidden position_35_0 0.7398399464636285
+  hidden translation_36 0.025073857647143608 0.19393258302915117 -0.171
+  hidden rotation_36 0 0 1 0.8309600535362934
+  hidden position_36_0 -0.9499943421264371
+  hidden rotation_37 0.8087316697671275 -0.41590372417125326 0.4159052518737362 1.7815112454943707
+  hidden position_37_0 0.06001428499334323
+  hidden rotation_38 0.5885253235733638 -0.5543225069658528 -0.5885274010476993 2.1293869921901845
+  hidden position_38_0 1.5598266209730791
+  hidden rotation_39 -0.9999699017159204 -0.00548755486332557 -0.005484742826646463 1.570829268675867
+  hidden position_39_0 1.449949635079583
+  hidden rotation_40 0.5526487896312131 -0.6238240031326447 -0.5526508196272916 2.0260895372625334
+  hidden position_40_0 0.16181485678761406
+  hidden rotation_41 -0.5151490422263324 -0.6060615285165338 -0.6060617855841887 2.190211135419187
+  hidden position_41_0 5.499723158997831e-06
+  hidden rotation_42 0.5773492107704855 0.5773523860310632 0.5773492107615075 2.0943968247362363
+  hidden position_44_0 -8.748613346798295e-08
+  hidden position_44_1 8.228480707310779e-07
+  hidden translation_65 8.748613346798295e-08 0 0
+  hidden translation_66 8.228480707310779e-07 0 0
+  hidden rotation_67 0 0 -1 8.429369702178807e-08
+  hidden position_67_0 -3.654508954908628e-07
+  hidden rotation_68 0.9999999999999668 1.8272477701983121e-07 -1.8272544775524043e-07 1.5708000000000104
+  hidden translation_76 2.631307166200969e-05 -3.715204138998729e-06 0.029209614345880264
+  hidden rotation_76 -0.39683289538216515 -0.49087230760604333 0.775608168322205 6.103497904478761e-07
+  hidden rotation_80 -0.7125374265426846 0.496129321594817 -0.4961311439829141 4.37977093863737
+  hidden rotation_81 -0.9480889788392871 -0.22486319923701376 0.22486402520717488 4.659103619281637
+  hidden rotation_82 0 0 -1 2.755951327736313
+  hidden position_82_0 336.616929354691
+  hidden rotation_83 -0.16567473404197744 -0.6973336038502658 -0.6973361653043104 2.8132270405658892
+  hidden rotation_84 0 0 1 2.6948654456691967
+  hidden position_84_0 350.5506837281616
+  hidden rotation_85 -0.678156633613973 -0.5196641205500648 -0.5196660293864619 1.9497659266739706
+  hidden rotation_86 0 0 -0.9999999999999999 3.5791673572875733
+  hidden position_86_0 400.4331275907291
+  hidden rotation_87 -0.5312217193720713 -0.599082985999423 -0.5990851865581351 2.1649719074012506
+  hidden rotation_88 0 0 -1 2.8050236750066797
+  hidden position_88_0 400.2465007070276
+  hidden rotation_89 -0.4598555756041987 -0.6279052289728335 -0.6279075354017537 2.2795563765790554
+  translation 7.999906039177389 2.0009974355152256 0.08582963638015215
+  rotation 0.012973985713142578 0.002330221794177101 0.9999131191064077 3.1415413209831073
+  name "Tiago"
+  controller "<extern>"
+  supervisor TRUE
+  cameraSlot [
+    RangeFinder {
+      rotation 1 0 0 -1.57
+      name "camera_depth"
+      fieldOfView 1.012
+      width 640
+      height 480
+      minRange 0.8
+      maxRange 3.5
+    }
+    Camera {
+      rotation 1 0 0 -1.57
+      name "camera_color"
+      fieldOfView 1.012
+      width 320
+      height 240
+    }
+  ]
+}
