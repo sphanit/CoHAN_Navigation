@@ -28,4 +28,4 @@ class TeleopHumans(object):
 
 
 if __name__ == '__main__':
-  teleop_joy = TeleopHumans(1)
+  teleop_joy = TeleopHumans(5)

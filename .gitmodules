@@ -1,0 +1,3 @@
+[submodule "simulators/gazebo/gazebo-ros-actor-plugin"]
+	path = simulators/gazebo/gazebo-ros-actor-plugin
+	url = https://github.com/sphanit/gazebo-ros-actor-plugin.git

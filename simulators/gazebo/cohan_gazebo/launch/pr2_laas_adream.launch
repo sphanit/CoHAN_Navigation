@@ -1,0 +1,36 @@
+<launch>
+  <!-- set the environment variable for the launch file -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find cohan_gazebo):$(find gazebo_ros_actor_plugin)/config/skins" />
+	<arg name="with_humans" default="false"/>
+
+  <arg name="gui" default="true"/>
+  <arg name="robot_initial_pose" default="-x 2 -y 2 -z 0.0 -Y 1.57"/>
+  <arg name="headless" default="false" />
+  <arg name="debug" default="false" />
+  <arg name="paused" default="true"/>
+  <arg name="KINECT1" default="$(optenv KINECT1 false)" />
+  <arg name="L515" default="$(optenv L515 true)" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="headless" value="$(arg headless)" />
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="world_name"  value="$(find cohan_gazebo)/worlds/laas_adream_with_humans.world" if="$(arg with_humans)"/> 
+  	<arg name="world_name"  value="$(find cohan_gazebo)/worlds/laas_adream.world" unless="$(arg with_humans)"/>  
+  </include>
+
+  <!-- send pr2 urdf to param server -->
+  <include file="$(find cohan_gazebo)/robots/upload_pr2.launch" pass_all_args="true" />
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_pr2_model" pkg="gazebo_ros" type="spawn_model" args="$(arg robot_initial_pose) -unpause -urdf -param robot_description -model pr2" respawn="false" output="screen" />
+
+  <!-- default bringup script -->
+  <include file="$(find pr2_gazebo)/launch/pr2_bringup.launch" />
+
+  <!-- Load and Start Default Controllers -->
+  <include file="$(find pr2_controller_configuration_gazebo)/launch/pr2_default_controllers.launch" />
+
+</launch>

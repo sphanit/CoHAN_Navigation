@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <name>cohan_gazebo</name>
+  <version>0.1.0</version>
+  <description>CoHAN Gazebo Integration</description>
+
+  <!-- One maintainer tag required, multiple allowed, one person per tag -->
+  <maintainer email="ptsingaman@laas.fr">Phani Teja Singamaneni</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <!-- <build_depend>pr2_tuckarm</build_depend>
+  <run_depend>pr2_tuckarm</run_depend> -->
+
+</package>

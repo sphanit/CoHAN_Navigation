@@ -1,0 +1,39 @@
+<launch>
+  <arg name="map_name" default="map_laas_adream"/>
+  <arg name="localize" default="fake"/>
+  <arg name="fast_mode" default="false"/>
+  <arg name="node_start_delay" default="4.0"/>
+  <arg name="num_agents" default="2"/>
+  <arg name="robot_planner" default="cohan"/>
+	<arg name="with_humans" default="false"/>
+  
+  <!-- Launch gazebo simulatore with the robot controllers -->
+  <include file="$(find cohan_gazebo)/launch/pr2_laas_adream.launch">
+  	<arg name="with_humans" default="$(arg with_humans)"/>
+  </include>
+
+  <!-- Tuck arms before navigation -->
+  <node pkg="pr2_tuck_arms_action" type="tuck_arms_main.py" name="tuck_arms_server" output="screen" required="true"/>
+  <node pkg="pr2_tuckarm" type="tuck_arms.py" name="tuck_arms_client" output="screen" args="-l t -r t" />
+
+  <!-- start map_server with laas_adream map -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/$(arg map_name).yaml"/>
+  <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find cohan_navigation)/maps/maze.yaml" if="$(eval 'maze'==arg('map_name'))"/> -->
+
+  <include file="$(find cohan_navigation)/launch/gazebo_pr2_multi_launch/include/localization.launch">
+    <arg name="localize" value="$(arg localize)"/>
+  </include>
+
+
+  <include file="$(find cohan_navigation)/launch/gazebo_pr2_multi_launch/include/robot_only.launch">
+    <arg name="node_start_delay" value="$(arg node_start_delay)" />
+    <arg name="localize" value="$(arg localize)"/>
+    <arg name="num_agents" value="$(arg num_agents)"/>
+    <arg name="robot_planner" value="$(arg robot_planner)"/>
+  </include>
+
+  <node pkg="cohan_gazebo" type="actor_path_publisher.py" name="human_path_controller" output="screen"/>
+
+  <!-- Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find cohan_navigation)/rviz/cohan_nav_stage.rviz" />
+</launch>

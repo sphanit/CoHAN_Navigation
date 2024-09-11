@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot name="realsense2_camera" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find realsense2_description)/urdf/_l515.urdf.xacro" />
+  
+  <!-- <xacro:sensor_l515 name="l515" topics_ns="l515" parent="head_plate_frame" use_nominal_extrinsics="true" publish_pointcloud="true" add_plug="false" use_mesh="true">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </xacro:sensor_l515>   -->
+</robot>
