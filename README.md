@@ -1,3 +1,5 @@
+## The latest version for ROS1 is maintained here: https://github.com/LAAS-HRI/CoHAN2.0
+## The latest version for ROS2 is maintained here: https://github.com/sphanit/CoHAN-Nav2
 
 # CoHAN Navigation
 
